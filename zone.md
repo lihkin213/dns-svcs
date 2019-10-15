@@ -31,8 +31,9 @@ subcollection: dns-svcs
 
 Create an instance of DNS Services.
 
-After you create your own instance, create a zone to host in that instance. The zone must be two levels deep. Note that this doesn't limit the depth of hostnames within the zone. For example, within the zone `example.com`, you can add A records for `hostname.example.com`, or `hostname.subdomain.example.com`.
+After you create your own instance, create a zone to host in that instance. The zone must be two levels deep. Note that this doesn't limit the depth of hostnames within the zone. For example, within the zone `example.com`, you can add A records for `hostname.example.com`, or `hostname.subdomain.example.com`. 
 
+Unlike public DNS domains, private domains are not registered with a registrar. They exist solely within IBM Cloud DNS Services. To enable split horizon DNS operation, we allow arbitrary domain names with a few restrictions. This can result in a private DNS domain with the same name as a public DNS domain. When such a private domain is attached to a network such as a VPC, the private domain will have higher precedence in that network.
 
 ### Create a DNS zone
 {: #create-a-dns-zone}

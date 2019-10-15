@@ -20,7 +20,7 @@ DNS Services
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [DNS Services API Placeholder](https://test.cloud.ibm.com/apidocs)
+    [DNS Services API](https://test.cloud.ibm.com/apidocs)
     {: .navgroup-end}
 
     {: .navgroup id="help"}

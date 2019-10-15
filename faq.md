@@ -99,11 +99,6 @@ If a network has been added to a zone, the zone cannot be deleted until the perm
 If the VPC is deleted, the corresponding Permitted Network will also be deleted from the DNS zones of your instance.
 
 
-## My DNS is not working. What should I do now?
-{: faq}
-
-Verify that the endpoint from which you are trying to perform name resolution belongs to a Permitted Network of the DNS zone. Also verify that the resource record you are trying to resolve is added to the DNS zone. Ensure that you are querying the DNS resolvers provided by the service.
-
 ## What do the different zone states mean?
 {: faq}
 ### Pending_Network_Add or Pending (UI)
@@ -131,10 +126,6 @@ Creating two DNS Zones with the same name is allowed. Use label and description 
 
 Adding the same VPC to two DNS Zones of the same name is not allowed. 
 
-## Adding my VPC as Permitted Network failed. How can I get my VPC enabled for Private DNS?
-{: faq}
-
-Follow the process listed [here](https://www.ibm.com/support/pages/node/1086243)
  
 ## What are the authoritative servers for the private DNS zones? Can I resolve the private DNS zones iteratively?
 {: faq}
