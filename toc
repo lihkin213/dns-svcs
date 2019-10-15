@@ -1,0 +1,31 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="dns-svcs" category="network" audience="service" href="/docs/dns-svcs?topic=dns-svcs-getting-started" path="dns-svcs"}
+DNS Services
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    overview.md
+    dns-concepts.md
+    use-cases.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    configure-dns-instance.md
+    zone.md
+    acl.md
+    resource-record-ui.md
+    resource-record.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    [DNS Services API Placeholder](https://test.cloud.ibm.com/apidocs)
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    faq.md
+    troubleshooting.md
+    known-limitations.md
+    getting-help.md
+    {: .navgroup-end}
