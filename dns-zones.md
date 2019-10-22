@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-09"
+lastupdated: "2019-10-16"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -19,24 +19,54 @@ subcollection: dns-svcs
 {:important: .important}
 {:deprecated: .deprecated}
 {:generic: data-hd-programlang="generic"}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:screen: .screen}
+{:download: .download}
+
 
 # Managing DNS zones
-{: #Manage-dns-zones}
+{:#managing-dns-zones}
 
 {{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-## Before you begin
-{: #before-you-begin-configuring-zones}
+If you have not already created a DNS service instance, refer to [Create a DNS Services Instance](/docs/infrastructure/dns-svcs?topic=dns-svcs-getting-started#step-1-create-dns-services-instance) before managing DNS zones.
 
-Create an instance of DNS Services.
+## Using the IBM Cloud console
+{: #managing-dns-zones-ui}
 
-After you create your own instance, create a zone to host in that instance. The zone must be two levels deep. Note that this doesn't limit the depth of hostnames within the zone. For example, within the zone `example.com`, you can add A records for `hostname.example.com`, or `hostname.subdomain.example.com`. 
+### Creating DNS zone
+{:#create-dns-zone-ui}
 
-Unlike public DNS domains, private domains are not registered with a registrar. They exist solely within IBM Cloud DNS Services. To enable split horizon DNS operation, we allow arbitrary domain names with a few restrictions. This can result in a private DNS domain with the same name as a public DNS domain. When such a private domain is attached to a network such as a VPC, the private domain will have higher precedence in that network.
+  1. From the resource page, select the desired DNS Services instance.
+  2. Click the **Create Zone** button on the **DNS Zones** page. A panel appears.
+  3. In the side panel, enter your zone name in the **Name** field.
+  4. The **Label** and **Description** are optional fields.
+  5. Click **Create Zone** button.
+
+If the zone creation is successful, you are directed to the **Zone Details** page.
+
+If the zone creation is unsuccessful, an error notification appears with information about what caused the error.
+
+### Editing DNS zone
+{:#edit-dns-zone-ui}
+
+  1. From the **DNS Zones** page, select the desired zone. **Label** and **Description** options appear.
+  2. To edit label, click on the edit icon for **Label**, enter the label and click **Save**.
+  3. To edit description, click on the edit icon for **Description**, enter the description and click **Save**.
+
+### Deleting DNS zone
+{:#delete-dns-zone-ui}
+
+  1. From the **DNS Zones** page, click the delete icon from the row for the zone you wish to delete. A confirmation dialog appears.
+  2. Click **Delete** button.
+
+## Using the API
+{: #managing-dns-zones-api}
 
 ### Create a DNS zone
-{: #create-a-dns-zone}
+{: #create-dns-zone-api}
 
 Create a new zone by using the following curl command:
 
@@ -75,8 +105,8 @@ curl -X POST \
 For future reference, the "tag" in response is used as `ZONE_TAG`. 
 {:note}
 
-## Get a DNS Zone
-{: #get-a-dns-zone}
+### Get a DNS Zone
+{: #get-dns-zone-api}
 
 Use the following command to get a zone which has already been created. 
 
@@ -107,13 +137,13 @@ curl -X GET \
     "messages": []
 }
 ```
-## Update a DNS zone
-{: #update-a-dns-zone}
+### Update a DNS zone
+{: #update-dns-zone-api}
 
 
 
-## List DNS Zones
-{: #list-dns-zones}
+### List DNS Zones
+{: #list-dns-zones-api}
 
 If you have a one or more zones in your domain you can list them by using the following curl command: 
 
@@ -147,8 +177,8 @@ curl -X GET \
 }
 ```
 
-## Delete a DNS Zone
-{: #delete-a-dns-zone}
+### Delete a DNS Zone
+{: #delete-dns-zone-api}
 
 **Request**
 

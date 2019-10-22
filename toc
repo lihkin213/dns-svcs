@@ -13,10 +13,9 @@ DNS Services
 
     {: .navgroup id="howto"}
     configure-dns-instance.md
-    zone.md
-    acl.md
-    resource-record-ui.md
-    resource-record.md
+    dns-zones.md
+    permitted-networks.md
+    dns-records.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

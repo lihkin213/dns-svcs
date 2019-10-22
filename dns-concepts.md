@@ -3,7 +3,7 @@
 copyright:
 
   years: 2019
-  
+
 lastupdated: "2019-10-14"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc, Access Control Lists, permitted networks
@@ -33,11 +33,11 @@ This document contains some concepts and definitions related to the internet's d
 
 
 ## DNS Zones
-{: #what-is-a-zone}
+{: #what-is-zone}
 
 A DNS zone is a collection of resource records which belongs to a single parent instance. All resource records have the zone's domain name as a suffix. You can create, update, delete, get, and list the DNS Zones using curl commands.
 
-See [Manage DNS zones](/docs/dns-svcs?topic=dns-svcs-Manage-dns-zones) for more information on how to manage DNS zones.
+See [Manage DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones) for more information on how to manage DNS zones.
 
 IBM Cloud DNS Services permits only two level zones to be added. For instance, `example.com` is allowed, while `subdomain.example.com` is not. However, subdomains can be defined within an added zone (for example, `subdomain.example.com`, `hostname.example.com`, or `hostname.subdomain.example.com` are all valid names within the zone `example.com`).
 
@@ -46,12 +46,12 @@ IBM Cloud DNS Services permits only two level zones to be added. For instance, `
 
 Permitted networks are the VPCs that are allowed to perform name resolution on the DNS Zone. The permitted network is used as an access control mechanism to guarantee that only the VPC that has been added as a permitted network is allowed to perform name resolution on the DNS zone.
 
-See [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-manage-acls) for more information on how to manage permitted networks.
+See [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-managing-permitted-networks) for more information on how to manage permitted networks.
 
 ## Resource Records (RR)
 {: #what-are-resource-records}
 
-Resource Records(RR) are entries in the DNS Zone files. The most common type is an A record that provides a mapping between a name to an IPv4 address. 
+Resource Records(RR) are entries in the DNS Zone files. The most common type is an A record that provides a mapping between a name to an IPv4 address.
 
 ### Supported Resource Record Types
 {: #supported-resource-record-types}
@@ -85,7 +85,7 @@ This record specifies the SMTP mail server for the DNS zone.
 #### SRV (Service Location)
 {: #record-type-srv}
 
-This record specifies the location of the server(s) for a specific protocol and domain. 
+This record specifies the location of the server(s) for a specific protocol and domain.
 
 #### TXT (Text)
 {: #record-type-tx}
@@ -101,5 +101,3 @@ This type of record cannot be created in DNS zone but can be queried for your DN
 {: #record-type-soa}
 
 This type of record cannot be created in DNS Zone but can be queried for your DNS zone. The data returned is statically defined and cannot be changed.
-
-

@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019 
-lastupdated: "2019-10-15"
+  years: 2019
+lastupdated: "2019-10-16"
 
-keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc, Access Control Lists, permitted networks
+keywords: dns-svcs, DNS Services, Private DNS
 
 subcollection: dns-svcs
 
@@ -12,26 +12,55 @@ subcollection: dns-svcs
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:DomainName: data-hd-keyref="DomainName"}
 {:note: .note}
 {:tip: .tip}
 {:important: .important}
 {:deprecated: .deprecated}
 {:generic: data-hd-programlang="generic"}
-
-
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:screen: .screen}
+{:download: .download}
 
 # Managing permitted networks
-{: #manage-acls}
+{: #managing-permitted-networks}
 
 {{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-You can control which VPC is permitted to perform name resolution for a DNS zone, by adding the VPC as a permitted network to the DNS Zone. The permitted network is used for Access Control mechanism.
+## Using the IBM Cloud console
+{: #managing-permitted-networks-ui}
 
+### Adding permitted networks
+{: #adding-permitted-networks-ui}
 
-## Create a permitted network
-{: #create-acl-entry}
+DNS Services is a global service, therefore you may add permitted networks (for example, a VPC) from any {{site.data.keyword.cloud}} region. This request adds the network to the DNS zone, thereby giving the network access to the zone. You may add up to 10 permitted networks to a DNS zone.
+
+- If you are not already on the Zone Details page, navigate there by selecting the desired zone from the table on the DNS Zones page.
+- Select the **Permitted Networks** tab
+- Click the **Add Network** button
+- In the side panel, select the region of your network from the **Network Region** dropdown
+- Select the desired network from the **Network** dropdown that appears
+- Click **Add Network**
+
+Adding the same VPC to two DNS Zones of the same name is not allowed.
+{:note}
+
+### Removing a permitted network
+{: #removing-permitted-networks-ui}
+
+From the permitted networks table, click the **Delete** icon. Confirm the delete process in the dialog box that appears.
+
+If a network has been added to a zone, the zone cannot be deleted until the permitted network is deleted from the zone.
+{:note}
+
+## Using the API
+{: #managing-permitted-networks-api}
+
+### Adding permitted networks
+{: #adding-permitted-networks-api}
 
 A DNS zone's initial state is `PENDING_NETWORK_ADD`, because its permitted network list is empty when the DNS zone is created. When a permitted network is added to the DNS zone's permitted networks, the state moves to `ACTIVE`.
 
@@ -71,8 +100,8 @@ curl -X POST \
 For future requests the ID in the response is referenced as `Permitted_Network_ID`.
 {:note}
 
-## Get a permitted network
-{: #get-acl-entry}
+### Get a permitted network
+{: #get-permitted-network-api}
 
 List a particular permitted network from your instance using the Permitted Network ID.
 
@@ -98,8 +127,8 @@ curl -X GET \
 }
 ```
 
-## List permitted networks
-{: #list-acls}
+### List permitted networks
+{: #list-permitted-networks-api}
 
 List all permitted network for your DNS zone.
 
@@ -129,8 +158,8 @@ curl -X GET \
 }
 ```
 
-## Delete a permitted network
-{: #delete-acl-entry}
+### Removing a permitted network
+{: #removing-permitted-networks-api}
 
 Delete a particular permitted network from your instance. Unlink VPC from a zone.
 

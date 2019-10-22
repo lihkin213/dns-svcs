@@ -10,6 +10,11 @@ subcollection: dns-svcs
 
 ---
 
+{:shortdesc: .shortdesc}
+{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:DomainName: data-hd-keyref="DomainName"}
+
 # Setting up your DNS instance
 {: #setting-up-your-dns-instance}
 
@@ -19,15 +24,15 @@ subcollection: dns-svcs
 This section describes how to set up a DNS instance, DNS zones, permitted networks, and resource records.
 
 ## Creating a DNS instance
-{: #creating-a-dns-instance}
+{: #creating-dns-instance}
 
-If your account is enabled for the experimental DNS Services, it appears in the experimental catalog at https://test.cloud.ibm.com/catalog/labs. You can also navigate directly to the DNS Services instance creation by going to https://test.cloud.ibm.com/catalog/services/dns-services.
+If your account is enabled for the experimental DNS Services, it appears in the [experimental catalog](https://{DomainName}/catalog/labs). You can also navigate directly to the DNS Services instance creation by going to the [DNS Services catalog entry](https://{DomainName}/catalog/services/dns-services).
 
 ## Creating a DNS zone
-{: #creating-a-dns-zone}
+{: #creating-dns-zone}
 
 ### Before you begin
-{: #dns-zone-before-you-begin}
+{: #configure-dns-before-you-begin}
 You must create a VPC so that you can link your DNS zone to the VPC.
 
 After you gather details about your instance, you can create a new DNS zone by using the following curl command:
@@ -63,9 +68,9 @@ curl -X POST \
 
 
 ## Creating a permitted network
-{: #creating-an-acl}
+{: #creating-permitted-network}
 
-Private DNS allows name resolution only from a VPC that has been added to the DNS Zone. 
+Private DNS allows name resolution only from a VPC that has been added to the DNS Zone.
 
 When a DNS zone first gets created, its Status is `PENDING_NETWORK_ADD`. In order to move the zone to an `ACTIVE` state, add an entry for your VPC to the zone's permitted network.
 
@@ -98,7 +103,7 @@ curl -X POST \
 ```
 
 ### Creating an "A" resource record
-{: #creating-a-resource-records}
+{: #creating-resource-records}
 
 An A Record (Address Record) is a DNS resource record that associates a domain or subdomain to an IPv4 address.
 

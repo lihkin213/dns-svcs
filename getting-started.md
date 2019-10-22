@@ -44,13 +44,14 @@ These steps enable you to query any record added underneath the zone from the Pe
 
 ## Before you begin
 
-To use DNS Services you must have a VPC created in the IBM Cloud. Follow this link to [Create the VPC](/docs/vpc-on-classic?topic=vpc-on-classic-creating-a-vpc-using-the-rest-apis).
+To use DNS Services you must have a VPC created in the IBM Cloud. Follow this link to [Create the VPC](/docs/vpc-on-classic?topic=vpc-on-classic-creating-a-vpc-using-the-ibm-cloud-console).
 
 The VPC must be configured to use the Private DNS resolvers (161.26.0.7, 161.26.0.8). For example, on some Linux distributions, this can be done by editing the file `/etc/resolv.conf`. It may also be possible to override the default DNS resolvers via cloud init during server boot up. Consult your operating system manuals for more information. When editing configuration files, ensure that you keep a backup copy of the existing configuration in case it needs to be restored. An easier way to use private DNS resolvers will be introduced in the future.
 
 Note that while the private DNS resolvers are required to resolve private DNS names, they also resolve public DNS names if the request is for a name that is not defined to be in a private DNS zone for the originating network/VPC.
 
 ## Step 1: Create a DNS Services Instance
+{: #step-1-create-dns-services-instance}
 
 Open the {{site.data.keyword.cloud_notm}} catalog page and select `Networking`. Click on the `DNS Services` tile to create a `DNS Services` instance. Currently the default and only available plan is free.
 
@@ -64,9 +65,9 @@ Open the {{site.data.keyword.cloud_notm}} catalog page and select `Networking`. 
 - Click "Create Zone"
 - If the zone creation is successful, you will be directed to the Zone Details page
 
-For example, a zone name could be `example.com`. Note that only 2 level zones are supported as zone names (for example, `example.com` is permitted, but `subdomain.example.com` is not, although subdomains can be defined within the zone once created). 
+For example, a zone name could be `example.com`. Note that only 2 level zones are supported as zone names (for example, `example.com` is permitted, but `subdomain.example.com` is not, although subdomains can be defined within the zone once created).
 
-For steps on using the API, follow the steps in the detailed guide to [Creating a zone](/docs/dns-svcs?topic=dns-svcs-Manage-dns-zones#create-a-dns-zone).
+For steps on using the API, follow the steps in the detailed guide to [Creating a zone](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones-api#managing-dns-zones-api).
 
 
 ## Step 3: Add VPC as a Permitted Network to the DNS Zone
@@ -81,7 +82,7 @@ For steps on using the API, follow the steps in the detailed guide to [Creating 
 
 This request adds the VPC network to the zone, thereby giving the network access to the zone.
 
-For steps on using the API, follow the steps in the detailed guide to [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-manage-acls#create-acl-entry).
+For steps on using the API, follow the steps in the detailed guide to [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-managing-permitted-networks-api#managing-permitted-networks-api).
 
 
 ## Step 4: Add DNS Resource Records
@@ -92,9 +93,9 @@ For steps on using the API, follow the steps in the detailed guide to [Managing 
 - Click the "Add Record" button
 - In the side panel, select the type of DNS record you would like to add from the "Type" dropdown
 - Input the required data for the type of DNS record you selected
-- Click "Add Record" 
+- Click "Add Record"
 
-For steps on using the API, follow the steps in the detailed guide to [Managing resource records](/docs/dns-svcs?topic=dns-svcs-resource-record#create-an-a-resource-record).
+For steps on using the API, follow the steps in the detailed guide to [Managing DNS records](/docs/dns-svcs?topic=dns-svcs-managing-dns-records-api#managing-dns-records-api).
 
 ## Step 5: Test if the DNS Name resolution works from the VPC
 
@@ -103,4 +104,3 @@ Test whether the zone resolution works using a dig from the VPC. The following c
 ```shell
 dig www.example.com
 ```
-

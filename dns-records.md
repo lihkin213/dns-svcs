@@ -1,27 +1,132 @@
 ---
 
 copyright:
-  years: 2019  
-lastupdated: "2019-10-09"
+  years: 2019
+lastupdated: "2019-10-16"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
 subcollection: dns-svcs
 
-
 ---
 
-# Managing Resource records
-{: #manage-resource-records}
+{:shortdesc: .shortdesc}
+{:new_window: target="_blank"}
+{:external: target="_blank" .external}
+{:DomainName: data-hd-keyref="DomainName"}
+{:note: .note}
+{:tip: .tip}
+{:important: .important}
+{:deprecated: .deprecated}
+{:generic: data-hd-programlang="generic"}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:screen: .screen}
+{:download: .download}
+
+
+# Managing DNS records
+{:#managing-dns-records}
 
 {{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-This section describes how to create various kinds of resource records, and perform other actions around resource records.
+## Using the IBM Cloud console
+{: #managing-dns-records-ui}
 
-## Create resource record of type 'A'
-{: #create-an-a-resource-record}
+### Adding DNS records
+{:#adding-dns-records}
 
+  1. From the DNS zones table click on the zone name to which you would like to add record(s). You will see more details on selected zone.
+  2. Click on **Add Record** button. A panel appears for creating a record.
+
+You can use the **Type** dropdown to select the type of record you want to create. Each DNS record type has a Name and Time-To-Live (TTL) associated with it.
+
+Whatever is entered into the Name field will have domain name appended to it unless domain name is manually appended in the field already (for example if `www` or `www.example.com` is typed into the field, the API will handle both as `www.example.com`). If the exact domain name is typed into the name field, then it won't be appended on itself (for example, `example.com` will be handled as `example.com`). However, the list of DNS records only shows the names without the domain name, so `www.example.com` is shown as `www` and `example.com` is shown as `example.com`. The TTL has a default value of `1 min`, but can be changed by the user.
+
+#### A Type record
+{:#a-record}
+
+To add this record type, valid values must exist in the **Name** and **IPv4 Address** fields. A **TTL** also can be specified from the dropdown menu, with a default value of `1 min`.
+
+    Required Fields: Name
+                     IPv4 Address
+                     TTL (Default value is 1 min)
+
+#### AAAA Type record
+{:#aaaa-record}
+
+To add this record type, valid values must exist in the **Name** and **IPv6 Address** fields. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+
+    Required Fields: Name
+                     IPv6 Address
+                     TTL (Default value is 1 min)
+
+#### CNAME Type record
+{:#cname-record}
+
+To add this record type, a valid value must exist in the **Name** field and a fully qualified domain name must be in the **Target** (FQDN) field. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+
+    Required Fields: Name
+                     Target (for CNAME)
+                     TTL (Default value is 1 min)
+
+#### MX Type record
+{:#mx-record}
+
+To add this record type, a valid value must exist in the **Name** field, a fully qualified domain name must be in the **Mail Server** (FQDN)field and a valid number must exist in the **Priority** field. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+
+    Required Fields: Name
+                     Mail Server
+                     TTL (Default value is 1 min)
+                     Priority (Default value is 1)
+
+#### PTR Type record
+{:#ptr-record}
+
+To add this record type, an existing A or AAAA records must be created beforehand that are not already associated with another PTR record. A filterable dropdown will allow user to select an existing record. Selecting an existing record is mandatory. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+
+    Required Fields: Select existing record
+                     TTL (Default value is 1 min)
+
+#### SRV Type record
+{:#srv-record}
+
+To add this record type, valid values must exist in the **Name**, **Service Name** and **Target** fields. Use the dropdown menu to select a **protocol**, which defaults to the UDP protocol. Additionally, you can specify **Priority**, **Weight** and **Port**. These three fields default to a value of 1. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+
+    Required Fields: Name
+                     Service Name
+                     Target
+                     TTL (Default value is 1 min)
+                     Protocol (Default value is UDP)
+                     Priority (Default value is 1)
+                     Weight (Default value is 1)
+                     Port (Default value is 1)
+
+#### TXT Type record
+{:#txt-record}
+
+To add this record type, valid values must exist in the **Name** and **Content** fields. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+
+    Required Fields: Name
+                     Content
+                     TTL (Default value is 1 min)
+
+### Updating DNS records
+{:#updating-dns-records}
+
+In each record row, you can click the **Edit** icon, which will open a side panel, which you can use to update the record.
+
+### Deleting DNS records
+{:#deleting-dns-records}
+
+In each record row, you can click the **Delete** icon, which opens a dialog box to confirm the delete process.
+
+## Using the API
+{: #managing-dns-records-api}
+
+### Create resource record of type 'A'
+{: #create-resource-record-api}
 
 **Request**
 
@@ -56,8 +161,8 @@ curl -X POST \
 }
 ```
 
-## Create resource record of type 'SRV'
-{: #create-an-srv-resource-record}
+### Create resource record of type 'SRV'
+{: #create-srv-resource-record-api}
 
 **Request**
 
@@ -100,8 +205,8 @@ curl -X POST \
 }
 ```
 
-## Create resource record of type 'TXT'
-{: #create-a-txt-resource-record}
+### Create resource record of type 'TXT'
+{: #create-txt-resource-record-api}
 
 **Request**
 
@@ -134,8 +239,8 @@ curl -X POST \
 }
 ```
 
-## Create resource record of type 'MX'
-{: #create-an-amx-resource-record}
+### Create resource record of type 'MX'
+{: #create-amx-resource-record-api}
 
 **Request**
 
@@ -170,8 +275,8 @@ curl -X POST \
 }
 ```
 
-## Create resource record of type 'PTR'
-{: #create-a-ptr-resource-record}
+### Create resource record of type 'PTR'
+{: #create-ptr-resource-record-api}
 
 **Request**
 
@@ -204,8 +309,8 @@ curl -X POST \
 }
 ```
 
-## Create resource record of type 'CNAME'
-{: #create-a-cname-resource-record}
+### Create resource record of type 'CNAME'
+{: #create-cname-resource-record-api}
 
 **Request**
 
@@ -239,8 +344,8 @@ curl -X POST \
 ```
 
 
-## Create resource record of type 'AAAA'
-{: #create-an-aaaa-resource-record}
+### Create resource record of type 'AAAA'
+{: #create-aaaa-resource-record-api}
 
 **Request**
 
@@ -273,8 +378,8 @@ curl -X POST \
 }
 ```
 
-## Get a resource record
-{: #get-a-resource-record}
+### Get a resource record
+{: #get-resource-record-api}
 
 **Request**
 
@@ -300,8 +405,8 @@ curl -X GET \
 }
 ```
 
-## List resource records
-{: #list-resource-records}
+### List resource records
+{: #list-resource-records-api}
 
 **Request**
 
@@ -331,8 +436,8 @@ curl -X GET \
 }
 ```
 
-## Update a resource record
-{: #update-a-resource-record}
+### Update a resource record
+{: #update-resource-record-api}
 
 **Request**
 
@@ -341,10 +446,10 @@ curl -X PUT \
   https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$ZONE_ID/resource_records/$RECORD_TAG \
   -H "Authorization: $TOKEN" \
   -d '{
-	"name":"www", 
+	"name":"www",
 	"rdata": {
             "ip":"7.7.7.7"
-        }, 
+        },
  	"ttl":300
 }'
 ```
@@ -365,10 +470,8 @@ curl -X PUT \
 }
 ```
 
-
-
-## Delete a resource record
-{: #delete-a-resource-record}
+### Delete a resource record
+{: #delete-resource-record-api}
 
 **Request**
 
