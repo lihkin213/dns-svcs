@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019  
-lastupdated: "2019-10-14"
+  years: 2019
+lastupdated: "2019-10-22"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc
 
@@ -13,6 +13,7 @@ subcollection: dns-svcs
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:external: target="_blank" .external}
+{:important: .important}
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Setting up your DNS instance
@@ -23,19 +24,83 @@ subcollection: dns-svcs
 
 This section describes how to set up a DNS instance, DNS zones, permitted networks, and resource records.
 
-## Creating a DNS instance
-{: #creating-dns-instance}
+## Using the IBM Cloud console
+{: #setting-up-your-dns-instance-ui}
+
+### Creating a DNS instance
+{: #creating-a-dns-instance}
+
+  1. Open the IBM Cloud **Catalog** page.
+  2. Select the **Networking** category.
+  3. Click the **DNS Services** tile.  
+     Currently, the default and only available plan is free.
+  4. Enter **Service name** and click **Create**.
+  
+    You are redirected to the DNS Services instance page showing **DNS Zones** information.
+
+### Creating a DNS zone
+{: #creating-a-dns-zone}
+
+  1. Navigate to the resource page and select your DNS Services instance.
+  2. On the DNS Zones page, click **Create Zone**.
+  3. In the Create Zone panel, enter your zone name. Optionally, enter a label and description.
+  4. Click **Create Zone** in the panel.
+    
+     If the zone is created successfully, you are redirected to the Zone Details page.
+
+### Creating a permitted network
+{: #creating-a-dns-permitted-network}
+
+  1. Navigate to the resource page and select your DNS Services instance. Then select your zone.
+  2. Click the **Permitted Networks** tab.
+  3. Click **Add Network**.
+  4. In the Add Network panel, select the region of your VPC from the **Network Region** menu.
+  5. Select the VPC from the **Network** menu that appears.
+  6. Click **Add Network**.
+
+  This request adds the VPC network to your zone, thereby giving the network access to the zone.
+
+### Creating an "A" resource record
+{: #creating-an-a-resource-record}
+
+  1. Navigate to the resource page and select your DNS Services instance. Then select your zone.
+  2. On the DNS Details page, click the **DNS Records** tab.
+  3. Click **Add Record**.
+  4. In the Add Record panel, select the type of DNS record you want to add from the **Type** menu.
+  
+     In this case, select the type **A**.
+  5. Enter the required data for the type of DNS record you selected.
+  
+     In this case, for type **A**, enter **Name** and **IPv4 Address**.
+  6. Click **Add Record** in the panel.
+
+### Verifying the setup
+{: #verifying-the-setup}
+
+To verify that your instance, zone, and record are performing correctly, run the following **dig** command:
+
+```dig @161.26.0.7 <Record type> <record name>```
+
+Example:
+
+```dig @161.26.0.7 A xyz.example.com```
+
+## Using the API
+{: #setting-up-your-dns-instance-api}
+
+### Creating a DNS instance
+{: #creating-dns-instance-api}
 
 If your account is enabled for the experimental DNS Services, it appears in the [experimental catalog](https://{DomainName}/catalog/labs). You can also navigate directly to the DNS Services instance creation by going to the [DNS Services catalog entry](https://{DomainName}/catalog/services/dns-services).
 
-## Creating a DNS zone
-{: #creating-dns-zone}
+### Creating a DNS zone
+{: #creating-dns-zone-api}
 
-### Before you begin
+#### Before you begin
 {: #configure-dns-before-you-begin}
 You must create a VPC so that you can link your DNS zone to the VPC.
 
-After you gather details about your instance, you can create a new DNS zone by using the following curl command:
+After you gather details about your instance, run the following **curl** command to create a DNS zone:
 
 **Request**
 ```json
@@ -66,15 +131,14 @@ curl -X POST \
 }
 ```
 
+### Creating a permitted network
+{: #creating-permitted-network-api}
 
-## Creating a permitted network
-{: #creating-permitted-network}
+Private DNS allows name resolution only from a VPC that was added to the DNS zone.
 
-Private DNS allows name resolution only from a VPC that has been added to the DNS Zone.
+When a DNS zone gets created, its Status is `PENDING_NETWORK_ADD`. To move the zone to `ACTIVE` state, add an entry for your VPC to the zone's permitted network.
 
-When a DNS zone first gets created, its Status is `PENDING_NETWORK_ADD`. In order to move the zone to an `ACTIVE` state, add an entry for your VPC to the zone's permitted network.
-
-By adding your VPC to your zone's permitted network, compute instances on your VPC will have access to these resource records.
+By adding your VPC to your zone's permitted network, compute instances on your VPC can access these resource records.
 
 **Request**
 ```json
@@ -143,13 +207,13 @@ curl -X POST \
 }
 ```
 
-## Verifying the setup
-{: #verifying-the-setup}
+### Verifying the setup
+{: #verifying-the-setup-api}
 
-Verify that your instance, zone and record are performing correctly by executing the following dig command:
+To verify that your instance, zone, and record are performing correctly, run the following **dig** command:
 
 ```dig @161.26.0.7 <Record type> <record name>```
 
-Example :
+Example:
 
 ```dig @161.26.0.7 A xyz.example.com```
