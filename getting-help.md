@@ -14,6 +14,7 @@ subcollection: dns-svcs
 {:new_window: target="_blank"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:external: target="_blank" .external}
+{:important: .important}
 
 # Getting help and support
 {: #gettinghelp}
