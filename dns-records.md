@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-11-04"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -33,106 +33,126 @@ subcollection: dns-svcs
 
 ## Using the IBM Cloud console
 {: #managing-dns-records-ui}
+DNS records can be managed from the {{site.data.keyword.ccloud_full}} console, or the API. The following sections cover the console usage.
 
 ### Adding DNS records
 {:#adding-dns-records}
 
-  1. From the DNS zones table click on the zone name to which you would like to add record(s). You will see more details on selected zone.
-  2. Click on **Add Record** button. A panel appears for creating a record.
+  1. From the DNS zones table, click on the zone name to which you want to add record(s). You will see more details on the selected zone.
+  2. Click the **Add Record** button to display a panel for creating a record.
 
 You can use the **Type** dropdown to select the type of record you want to create. Each DNS record type has a Name and Time-To-Live (TTL) associated with it.
 
-Whatever is entered into the Name field will have domain name appended to it unless domain name is manually appended in the field already (for example if `www` or `www.example.com` is typed into the field, the API will handle both as `www.example.com`). If the exact domain name is typed into the name field, then it won't be appended on itself (for example, `example.com` will be handled as `example.com`). However, the list of DNS records only shows the names without the domain name, so `www.example.com` is shown as `www` and `example.com` is shown as `example.com`. The TTL has a default value of `1 min`, but can be changed by the user.
+Whatever you enter into the Name field has domain name appended to it unless domain name is manually appended in the field already (for example if **`www`** or **`www.example.com`** is typed into the field, the API will handle both as **`www.example.com`**). If the exact domain name is typed into the name field, then it won't be appended on itself (for example, **`example.com`** will be handled as **`example.com`**). However, the list of DNS records only show the names without the domain name added on. As a result, **`www.example.com`** displays as **`www`** and **`example.com`** as **`example.com`**. 
+
+The TTL has a default value of **`1 min`**, but can be changed by the user.
+{:note}
 
 #### A Type record
 {:#a-record}
 
-To add this record type, valid values must exist in the **Name** and **IPv4 Address** fields. A **TTL** also can be specified from the dropdown menu, with a default value of `1 min`.
+To add this record type, valid values must exist in the **Name** and **IPv4 Address** fields. A **TTL** can also be specified from the dropdown menu, with a default value of **`1 min`**.
 
-    Required Fields: Name
-                     IPv4 Address
-                     TTL (Default value is 1 min)
+Required Fields: 
+* Name
+* IPv4 Address
+* TTL (Default value is 1 min)
 
 #### AAAA Type record
 {:#aaaa-record}
 
-To add this record type, valid values must exist in the **Name** and **IPv6 Address** fields. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, valid values must exist in the **Name** and **IPv6 Address** fields. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-    Required Fields: Name
-                     IPv6 Address
-                     TTL (Default value is 1 min)
+Required Fields: 
+* Name
+* IPv6 Address
+* TTL (Default value is 1 min)
 
 #### CNAME Type record
 {:#cname-record}
 
-To add this record type, a valid value must exist in the **Name** field and a fully qualified domain name must be in the **Target** (FQDN) field. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, a valid value must exist in the **Name** field and a fully qualified domain name must be in the **Target** (FQDN) field. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-    Required Fields: Name
-                     Target (for CNAME)
-                     TTL (Default value is 1 min)
+Required Fields: 
+* Name
+* Target (for CNAME)
+* TTL (Default value is 1 min)
 
 #### MX Type record
 {:#mx-record}
 
-To add this record type, a valid value must exist in the **Name** field, a fully qualified domain name must be in the **Mail Server** (FQDN)field and a valid number must exist in the **Priority** field. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, a valid value must exist in the **Name** field, a fully qualified domain name must be in the **Mail Server** (FQDN)field, and a valid number must exist in the **Priority** field. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-    Required Fields: Name
-                     Mail Server
-                     TTL (Default value is 1 min)
-                     Priority (Default value is 1)
+Required Fields: 
+* Name
+* Mail Server
+* TTL (Default value is 1 min)
+* Priority (Default value is 1)
 
 #### PTR Type record
 {:#ptr-record}
 
-To add this record type, an existing A or AAAA records must be created beforehand that are not already associated with another PTR record. A filterable dropdown will allow user to select an existing record. Selecting an existing record is mandatory. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, an existing A or AAAA records must be created beforehand that are not already associated with another PTR record. A dropdown allows you to select an existing record, and doing so is mandatory. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-    Required Fields: Select existing record
-                     TTL (Default value is 1 min)
+Required Fields: 
+* Select existing record
+* TTL (Default value is 1 min)
 
 #### SRV Type record
 {:#srv-record}
 
-To add this record type, valid values must exist in the **Name**, **Service Name** and **Target** fields. Use the dropdown menu to select a **protocol**, which defaults to the UDP protocol. Additionally, you can specify **Priority**, **Weight** and **Port**. These three fields default to a value of 1. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, valid values must exist in the **Name**, **Service Name** and **Target** fields. Use the dropdown menu to select a **protocol**, which defaults to the UDP protocol. Additionally, you can specify **Priority**, **Weight** and **Port**. These three fields default to a value of **`1`**. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-    Required Fields: Name
-                     Service Name
-                     Target
-                     TTL (Default value is 1 min)
-                     Protocol (Default value is UDP)
-                     Priority (Default value is 1)
-                     Weight (Default value is 1)
-                     Port (Default value is 1)
+Required Fields: 
+* Name
+* Service Name
+* Target
+* TTL (Default value is 1 min)
+* Protocol (Default value is UDP)
+* Priority (Default value is 1)
+* Weight (Default value is 1)
+* Port (Default value is 1)
 
 #### TXT Type record
 {:#txt-record}
 
-To add this record type, valid values must exist in the **Name** and **Content** fields. A **TTL** also can be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, valid values must exist in the **Name** and **Content** fields. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-    Required Fields: Name
-                     Content
-                     TTL (Default value is 1 min)
+Required Fields: 
+* Name
+* Content
+* TTL (Default value is 1 min)
 
 ### Updating DNS records
 {:#updating-dns-records}
 
-In each record row, you can click the **Edit** icon, which will open a side panel, which you can use to update the record.
+In each record row, click the **Edit** icon to open a panel where you can update the record.
 
 ### Deleting DNS records
 {:#deleting-dns-records}
 
-In each record row, you can click the **Delete** icon, which opens a dialog box to confirm the delete process.
+In each record row, click the **Delete** icon to open a panel where you can confirm the delete process.
 
 ## Using the API
 {: #managing-dns-records-api}
+
+First store the API endpoint in a variable so you can use it in API requests without having to type the full URL. For example, to store the production endpoint in a variable, run this command:
+
+```bash
+dnssvcs_endpoint=https://api.dns-svcs.cloud.ibm.com
+```
+{:pre}
+
+To verify that this variable was saved, run **`echo $DNSSVCS_ENDPOINT`** and make sure the response is not empty.
 
 ### Create resource record of type 'A'
 {: #create-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"name":"www.example.com",
@@ -143,6 +163,7 @@ curl -X POST \
  	"ttl":300
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -160,15 +181,16 @@ curl -X POST \
     }
 }
 ```
+{:pre}
 
 ### Create resource record of type 'SRV'
 {: #create-srv-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"type": "SRV",
@@ -183,6 +205,7 @@ curl -X POST \
 	}
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -204,15 +227,16 @@ curl -X POST \
     "protocol": "udp"
 }
 ```
+{:pre}
 
 ### Create resource record of type 'TXT'
 {: #create-txt-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"type": "TXT",
@@ -222,6 +246,7 @@ curl -X POST \
 	}
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -238,15 +263,16 @@ curl -X POST \
     }
 }
 ```
+{:pre}
 
 ### Create resource record of type 'MX'
 {: #create-amx-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"type": "MX",
@@ -257,6 +283,7 @@ curl -X POST \
 	}
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -274,15 +301,16 @@ curl -X POST \
     }
 }
 ```
+{:pre}
 
 ### Create resource record of type 'PTR'
 {: #create-ptr-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"type": "PTR",
@@ -292,6 +320,7 @@ curl -X POST \
 	}
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -308,15 +337,16 @@ curl -X POST \
     }
 }
 ```
+{:pre}
 
 ### Create resource record of type 'CNAME'
 {: #create-cname-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"type": "CNAME",
@@ -326,6 +356,7 @@ curl -X POST \
 	}
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -342,6 +373,7 @@ curl -X POST \
     }
 }
 ```
+{:pre}
 
 
 ### Create resource record of type 'AAAA'
@@ -349,9 +381,9 @@ curl -X POST \
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
 	"type": "AAAA",
@@ -361,6 +393,7 @@ curl -X POST \
 	}
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -377,17 +410,19 @@ curl -X POST \
     }
 }
 ```
+{:pre}
 
 ### Get a resource record
 {: #get-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X GET \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records/$RECORD_TAQ \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records/$RECORD_ID \
   -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -404,17 +439,19 @@ curl -X GET \
     }
 }
 ```
+{:pre}
 
 ### List resource records
 {: #list-resource-records-api}
 
 **Request**
 
-```json
+```bash
 curl -X GET \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -435,15 +472,16 @@ curl -X GET \
     ]
 }
 ```
+{:pre}
 
 ### Update a resource record
 {: #update-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X PUT \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$ZONE_ID/resource_records/$RECORD_TAG \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records/$RECORD_TAG \
   -H "Authorization: $TOKEN" \
   -d '{
 	"name":"www",
@@ -453,6 +491,7 @@ curl -X PUT \
  	"ttl":300
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -469,19 +508,23 @@ curl -X PUT \
     }
 }
 ```
+{:pre}
 
 ### Delete a resource record
 {: #delete-resource-record-api}
 
 **Request**
 
-```json
+```bash
 curl -X DELETE \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN"
 ```
+{:pre}
+
 **Response**
 
 ```json
 HTTP 204 is returned, no content in response.
 ```
+{:pre}

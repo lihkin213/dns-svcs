@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-15"
+lastupdated: "2019-11-04"
 
 keywords: dns-svcs, DNS Services, Private DNS 
 
@@ -35,27 +35,27 @@ subcollection: dns-svcs
 ## How is private DNS different from public DNS?
 {: faq}
 
-Private DNS permits name resolution only from Permitted VPCs within your IBM Cloud account. The DNS zone is not resolvable on the Internet.
+Private DNS permits name resolution only from Permitted VPCs within your {{site.data.keyword.cloud}} account. The DNS zone is not resolvable on the Internet.
 
 ## Can I manage publicly available DNS records with this service?
 {: faq}
 
-No, DNS Services only offers private DNS at the moment. Use IBM Cloud Internet Services for public DNS. [CIS documentation](/docs/infrastructure/cis?topic=cis-getting-started#getting-started)
+No, DNS Services only offers private DNS at the moment. Use {{site.data.keyword.cis_full_notm}} for public DNS. [{{site.data.keyword.cis_short_notm}} documentation](/docs/infrastructure/cis?topic=cis-getting-started#getting-started)
 
 ## Is DNSSec supported with zones managed by DNS Services?
 {: faq}
 
-DNSSec allows resolvers to cryptographically verify the data received from authoritative servers. DNS services resolvers support DNSSec for public domains, for which requests are forwarded to public resolvers that support DNSSec. For private zones, since the authority is within IBM Cloud, records are fetched using secure protocols, and are guaranteed to have the same level of privacy and security that DNSSec provides for public zones.
+DNSSec allows resolvers to cryptographically verify the data received from authoritative servers. DNS services resolvers support DNSSec for public domains, for which requests are forwarded to public resolvers that support DNSSec. For private zones, since the authority is within {{site.data.keyword.cloud_notm}}, records are fetched using secure protocols, and are guaranteed to have the same level of privacy and security that DNSSec provides for public zones.
 
 ## Is DNS services regional or global?
 {: faq}
 
-DNS services is a global service and can be used from permitted networks in any IBM Cloud region.
+DNS services is a global service and can be used from permitted networks in any {{site.data.keyword.cloud_notm}} region.
 
 ## How do I update my Virtual Server Instance to use Private DNS for Name resolution?
 {: faq}
 
-This is operating system specific. For example, on some Linux distributions /etc/resolv.conf file contains the IP address of the DNS resolver. This file should be updated with IP address of the Private DNS Name Servers, `161.26.0.7` and `161.26.0.8`. The configuration could also be updated via Cloud Init where supported. Consult your operating system manuals for instructions on how to update DNS resolvers. In the future, DNS Services will provide an automated way to update the resolvers, so manual action will not be necessary.
+This is operating system specific. For example, on some Linux distributions the /etc/resolv.conf file contains the IP address of the DNS resolver. This file should be updated with IP address of the Private DNS Name Servers, **`161.26.0.7`** and **`161.26.0.8`**. The configuration could also be updated through Cloud Init, where supported. Consult your operating system manuals for instructions on how to update DNS resolvers. See [Detailed steps](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones-api#updating-dns-resolver) on updating configuration to use Private DNS Resolvers, for different distros.
 
 ## When creating a DNS zone, what is the purpose of the 'Label' field?
 {: faq}
@@ -80,8 +80,8 @@ A given instance can have multiple DNS zones with the same name. The label helps
 ## How do I delete my DNS Services instance?
 {: faq}
 
-- Navigate to the Resource List in the IBM Cloud Console.
-- Click the "overflow" menu (dotted vertical line) in the last column and select "Delete".
+- Navigate to the Resource List in the [{{site.data.keyword.cloud_notm}} console](https://{DomainName}/){: new_window}.
+- Click the "overflow" menu ![overflow menu icon](/icons/actions-icon-vertical.svg "overflow menu icon") in the final column and select "Delete".
 
 ## Why can't I delete a DNS Services instance?
 {: faq}

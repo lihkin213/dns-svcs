@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-11-04"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -38,12 +38,12 @@ subcollection: dns-svcs
 
 DNS Services is a global service, therefore you may add permitted networks (for example, a VPC) from any {{site.data.keyword.cloud}} region. This request adds the network to the DNS zone, thereby giving the network access to the zone. You may add up to 10 permitted networks to a DNS zone.
 
-- If you are not already on the Zone Details page, navigate there by selecting the desired zone from the table on the DNS Zones page.
-- Select the **Permitted Networks** tab
-- Click the **Add Network** button
-- In the side panel, select the region of your network from the **Network Region** dropdown
-- Select the desired network from the **Network** dropdown that appears
-- Click **Add Network**
+- Select the desired zone from the table on the DNS Zones page.
+- Select the **Permitted Networks** tab.
+- Click the **Add Network** button.
+- In the panel that appears, select the region of your network from the **Network Region** dropdown menu.
+- Select the desired network from the **Network** dropdown menu that appears.
+- Click **Add Network**.
 
 Adding the same VPC to two DNS Zones of the same name is not allowed.
 {:note}
@@ -59,17 +59,26 @@ If a network has been added to a zone, the zone cannot be deleted until the perm
 ## Using the API
 {: #managing-permitted-networks-api}
 
+First store the API endpoint in a variable so you can use it in API requests without having to type the full URL. For example, to store the production endpoint in a variable, run this command:
+
+```bash
+dnssvcs_endpoint=https://api.dns-svcs.cloud.ibm.com
+```
+{:pre}
+
+To verify that this variable was saved, run **`echo $DNSSVCS_ENDPOINT`** and make sure the response is not empty.
+
 ### Adding permitted networks
 {: #adding-permitted-networks-api}
 
-A DNS zone's initial state is `PENDING_NETWORK_ADD`, because its permitted network list is empty when the DNS zone is created. When a permitted network is added to the DNS zone's permitted networks, the state moves to `ACTIVE`.
+A DNS zone's initial state is **`PENDING_NETWORK_ADD`**, because its permitted network list is empty when the DNS zone is created. When a permitted network is added to the DNS zone's permitted networks, the state changes to **`ACTIVE`**.
 
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-         https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls \
+         $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls \
          -H "Authorization: $TOKEN" \
          -d '{
              "type": "vpc",
@@ -78,10 +87,11 @@ curl -X POST \
                  }
          }'
 ```
+{:pre}
 
 **Parameters**
 
-* DNSZONE_ID: When you create a zone, the DNSZONE_ID is returned in the response.
+* DNSZONE_ID: When you create a zone, the DNSZONE_ID is returned in the response as **`id`**.
 
 **Response**
 
@@ -96,22 +106,24 @@ curl -X POST \
         "type": "vpc"
 }
 ```
+{:pre}
 
-For future requests the ID in the response is referenced as `Permitted_Network_ID`.
+For future requests the ID in the response is referenced as **`Permitted_Network_ID`**.
 {:note}
 
-### Get a permitted network
+### List a permitted network
 {: #get-permitted-network-api}
 
-List a particular permitted network from your instance using the Permitted Network ID.
+List a specific permitted network from your instance using the Permitted Network ID.
 
 **Request**
 
-```json
+```bash
 curl -X GET \
-         https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls/$ACL_ID \
+         $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls/$ACL_ID \
          -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -126,19 +138,21 @@ curl -X GET \
         "type": "vpc"
 }
 ```
+{:pre}
 
 ### List permitted networks
 {: #list-permitted-networks-api}
 
-List all permitted network for your DNS zone.
+List all permitted networks for your DNS zone.
 
 **Request**
 
-```json
+```bash
 curl -X GET \
-         https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls \
+         $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls \
          -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -157,21 +171,24 @@ curl -X GET \
     ]
 }
 ```
+{:pre}
 
 ### Removing a permitted network
 {: #removing-permitted-networks-api}
 
-Delete a particular permitted network from your instance. Unlink VPC from a zone.
+Delete a specific permitted network from your instance, and unlink VPC from a zone.
 
 **Request**
 
-```json
+```bash
 curl -X DELETE \
-         https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls/$ACL_ID \
+         $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls/$ACL_ID \
          -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 ```
          HTTP 204 returned, no content in response
 ```
+{:pre}

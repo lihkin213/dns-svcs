@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-10-30"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -35,6 +35,7 @@ If you have not already created a DNS service instance, refer to [Create a DNS S
 
 ## Using the IBM Cloud console
 {: #managing-dns-zones-ui}
+DNS zones can be managed through the {{site.data.keyword.cloud_full}} console, or the API. The following sections cover the console usage.
 
 ### Creating DNS zone
 {:#create-dns-zone-ui}
@@ -65,6 +66,15 @@ If the zone creation is unsuccessful, an error notification appears with informa
 ## Using the API
 {: #managing-dns-zones-api}
 
+First store the API endpoint in a variable so you can use it in API requests without having to type the full URL. For example, to store the production endpoint in a variable, run this command:
+
+```bash
+dnssvcs_endpoint=https://api.dns-svcs.cloud.ibm.com
+```
+{:pre}
+
+To verify that this variable was saved, run `echo $DNSSVCS_ENDPOINT` and make sure the response is not empty.
+
 ### Create a DNS zone
 {: #create-dns-zone-api}
 
@@ -72,15 +82,16 @@ Create a new zone by using the following curl command:
 
 **Request**
 
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/$CRN/zones \
-  -H "X-Auth-User-Token: $TOKEN" \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones \
+  -H "Authorization: $TOKEN" \
   -d '{
 	"name": "example.com",
 	"description": "Example zone"
 }'
 ```
+{:pre}
 
 **Response**
 
@@ -101,8 +112,9 @@ curl -X POST \
     "messages": []
 }
 ```
+{:pre}
 
-For future reference, the "tag" in response is used as `ZONE_TAG`. 
+For future reference, the "id" in response is used as `DNSZONE_ID`. 
 {:note}
 
 ### Get a DNS Zone
@@ -112,11 +124,12 @@ Use the following command to get a zone which has already been created. 
 
 **Request**
 
-```json
+```bash
 curl -X GET \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/$CRN/zones/$ZONE_TAG \
-  -H "X-Auth-User-Token: $TOKEN"
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID \
+  -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -137,9 +150,43 @@ curl -X GET \
     "messages": []
 }
 ```
+{:pre}
+
 ### Update a DNS zone
 {: #update-dns-zone-api}
 
+Use the following command to update a zone which has already been created. The description and label are the only fields that can be updated. All other fields are read-only.
+
+**Request**
+
+```bash
+curl -X PATCH \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: $TOKEN" \
+  -d '{
+	  "description": "The DNS zone is used for VPCs in us-east region",
+	  "label": "us-east"
+}'
+
+```
+{:pre}
+
+**Response**
+
+```json
+{
+  "created_on": "2019-01-01T05:20:00.12345Z",
+  "description": "The DNS zone is used for VPCs in us-east region",
+  "id": "example.com:2d0f862b-67cc-41f3-b6a2-59860d0aa90e",
+  "instance_id": "1407a753-a93f-4bb0-9784-bcfc269ee1b3",
+  "label": "us-east",
+  "modified_on": "2019-01-01T05:20:00.12345Z",
+  "name": "example.com",
+  "state": "PENDING_NETWORK_ADD"
+}
+```
+{:pre}
 
 
 ### List DNS Zones
@@ -149,11 +196,12 @@ If you have a one or more zones in your domain you can list them by using the fo
 
 **Request**
 
-```json
+```bash
 curl -X GET \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/$CRN/zones \
-  -H "X-Auth-User-Token: $TOKEN"
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones \
+  -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -176,17 +224,19 @@ curl -X GET \
     "messages": []
 }
 ```
+{:pre}
 
 ### Delete a DNS Zone
 {: #delete-dns-zone-api}
 
 **Request**
 
-```json
+```bash
 curl -X DELETE \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/$CRN/zones/$ZONE_TAG \
-  -H "X-Auth-User-Token: $TOKEN"
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID \
+  -H "Authorization: $TOKEN"
 ```
+{:pre}
 
 **Response**
 
@@ -200,3 +250,4 @@ curl -X DELETE \
     "messages": []
 }
 ```
+{:pre}

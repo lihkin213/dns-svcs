@@ -16,6 +16,7 @@ DNS Services
     dns-zones.md
     permitted-networks.md
     dns-records.md
+    resolver-config.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}

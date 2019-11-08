@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-22"
+lastupdated: "2019-10-31"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc
 
@@ -12,8 +12,16 @@ subcollection: dns-svcs
 
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
-{:external: target="_blank" .external}
+{:codeblock: .codeblock}
+{:pre: .pre}
+{:screen: .screen}
+{:tip: .tip}
+{:note: .note}
 {:important: .important}
+{:deprecated: .deprecated}
+{:external: target="_blank" .external}
+{:generic: data-hd-programlang="generic"}
+{:download: .download}
 {:DomainName: data-hd-keyref="DomainName"}
 
 # Setting up your DNS instance
@@ -36,7 +44,7 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
      Currently, the default and only available plan is free.
   4. Enter **Service name** and click **Create**.
   
-    You are redirected to the DNS Services instance page showing **DNS Zones** information.
+   You are redirected to the DNS Services instance page showing **DNS Zones** information.
 
 ### Creating a DNS zone
 {: #creating-a-dns-zone}
@@ -80,10 +88,12 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
 To verify that your instance, zone, and record are performing correctly, run the following **dig** command:
 
 ```dig @161.26.0.7 <Record type> <record name>```
+{:pre}
 
 Example:
 
 ```dig @161.26.0.7 A xyz.example.com```
+{:pre}
 
 ## Using the API
 {: #setting-up-your-dns-instance-api}
@@ -100,12 +110,21 @@ If your account is enabled for the experimental DNS Services, it appears in the 
 {: #configure-dns-before-you-begin}
 You must create a VPC so that you can link your DNS zone to the VPC.
 
+First store the API endpoint in a variable so you can use it in API requests without having to type the full URL. For example, to store the endpoint in a variable, run this command:
+
+```bash
+DNSSVCS_ENDPOINT=https://api.dns-svcs.cloud.ibm.com
+```
+{:pre}
+
+To verify that this variable was saved, run **`echo $DNSSVCS_ENDPOINT`** and make sure the response is not empty.
+
 After you gather details about your instance, run the following **curl** command to create a DNS zone:
 
 **Request**
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones \
   -H "Authorization: $TOKEN" \
   -d '{
         "name": "example.com",
@@ -113,6 +132,7 @@ curl -X POST \
         "label": "us-east"
   }'
 ```
+{:pre}
 
 * INSTANCE_ID: GUID of the instance
 * TOKEN: IAM OAUTH token
@@ -130,20 +150,21 @@ curl -X POST \
   "label": "us-east"
 }
 ```
+{:pre}
 
 ### Creating a permitted network
 {: #creating-permitted-network-api}
 
 Private DNS allows name resolution only from a VPC that was added to the DNS zone.
 
-When a DNS zone gets created, its Status is `PENDING_NETWORK_ADD`. To move the zone to `ACTIVE` state, add an entry for your VPC to the zone's permitted network.
+When a DNS zone gets created, its Status is **`PENDING_NETWORK_ADD`**. To move the zone to **`ACTIVE`** state, add an entry for your VPC to the zone's permitted network.
 
 By adding your VPC to your zone's permitted network, compute instances on your VPC can access these resource records.
 
 **Request**
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/acls \
   -H "Authorization: $TOKEN" \
   -d '{
         "type": "vpc",
@@ -152,6 +173,7 @@ curl -X POST \
         }
   }'
 ```
+{:pre}
 
 **Response**
 ```json
@@ -165,6 +187,7 @@ curl -X POST \
   "type": "vpc"
 }
 ```
+{:pre}
 
 ### Creating an "A" resource record
 {: #creating-resource-records}
@@ -172,9 +195,9 @@ curl -X POST \
 An A Record (Address Record) is a DNS resource record that associates a domain or subdomain to an IPv4 address.
 
 **Request**
-```json
+```bash
 curl -X POST \
-  https://api.dns-svcs.test.cloud.ibm.com/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
+  $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
   -H "Authorization: $TOKEN" \
   -d '{
         "name":"www.example.com",
@@ -185,6 +208,7 @@ curl -X POST \
         "ttl":300
   }'
 ```
+{:pre}
 
 * `name`: FQDN (such as www.example.com) or the host (such as www)
 * `type`: Type of Record - A, AAAA, SRV, etc.
@@ -206,6 +230,7 @@ curl -X POST \
    }
 }
 ```
+{:pre}
 
 ### Verifying the setup
 {: #verifying-the-setup-api}
@@ -213,7 +238,9 @@ curl -X POST \
 To verify that your instance, zone, and record are performing correctly, run the following **dig** command:
 
 ```dig @161.26.0.7 <Record type> <record name>```
+{:pre}
 
 Example:
 
 ```dig @161.26.0.7 A xyz.example.com```
+{:pre}
