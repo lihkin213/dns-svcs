@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-04"
+lastupdated: "2019-11-08"
 
 keywords: dns-svcs, DNS Services, Private DNS 
 
@@ -55,7 +55,7 @@ DNS services is a global service and can be used from permitted networks in any 
 ## How do I update my Virtual Server Instance to use Private DNS for Name resolution?
 {: faq}
 
-This is operating system specific. For example, on some Linux distributions the /etc/resolv.conf file contains the IP address of the DNS resolver. This file should be updated with IP address of the Private DNS Name Servers, **`161.26.0.7`** and **`161.26.0.8`**. The configuration could also be updated through Cloud Init, where supported. Consult your operating system manuals for instructions on how to update DNS resolvers. See [Detailed steps](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones-api#updating-dns-resolver) on updating configuration to use Private DNS Resolvers, for different distros.
+This is operating system specific. For example, on some Linux distributions the `/etc/resolv.conf` file contains the IP address of the DNS resolver. This file should be updated with the IP address of the Private DNS Name Servers, `161.26.0.7` and `161.26.0.8`. The configuration can also be updated through Cloud Init, where supported. Consult your operating system manuals for instructions on how to update DNS resolvers. See [Detailed steps](/docs/dns-svcs?topic=dns-svcs-updating-dns-resolver) to learn how to update configuration to use Private DNS Resolvers, for different distros.
 
 ## When creating a DNS zone, what is the purpose of the 'Label' field?
 {: faq}
