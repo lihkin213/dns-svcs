@@ -30,6 +30,7 @@ subcollection: dns-svcs
 {: important}
 
 IBM Cloud DNS Services provides private DNS to Virtual Private Cloud (VPC) users. Private DNS zones are resolvable only on IBM Cloud, and only from explicitly permitted networks such as VPCs in an account.
+{:shortdesc}
 
 This is the process to get started:
 

@@ -36,6 +36,7 @@ If you have not already created a DNS service instance, refer to [Create a DNS S
 ## Using the IBM Cloud console
 {: #managing-dns-zones-ui}
 DNS zones can be managed through the {{site.data.keyword.cloud_full}} console, or the API. The following sections cover the console usage.
+{:shortdesc}
 
 ### Creating DNS zone
 {:#create-dns-zone-ui}

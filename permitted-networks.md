@@ -30,6 +30,9 @@ subcollection: dns-svcs
 {{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
+This section describes how to manage permitted networks for your DNS Services instance.
+{:shortdesc}
+
 ## Using the IBM Cloud console
 {: #managing-permitted-networks-ui}
 

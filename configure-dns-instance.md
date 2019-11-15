@@ -31,6 +31,7 @@ subcollection: dns-svcs
 {: important}
 
 This section describes how to set up a DNS instance, DNS zones, permitted networks, and resource records.
+{:shortdesc}
 
 ## Using the IBM Cloud console
 {: #setting-up-your-dns-instance-ui}
@@ -43,7 +44,7 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
   3. Click the **DNS Services** tile.  
      Currently, the default and only available plan is free.
   4. Enter **Service name** and click **Create**.
-  
+
    You are redirected to the DNS Services instance page showing **DNS Zones** information.
 
 ### Creating a DNS zone
@@ -53,7 +54,7 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
   2. On the DNS Zones page, click **Create Zone**.
   3. In the Create Zone panel, enter your zone name. Optionally, enter a label and description.
   4. Click **Create Zone** in the panel.
-    
+
      If the zone is created successfully, you are redirected to the Zone Details page.
 
 ### Creating a permitted network
@@ -75,10 +76,10 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
   2. On the DNS Details page, click the **DNS Records** tab.
   3. Click **Add Record**.
   4. In the Add Record panel, select the type of DNS record you want to add from the **Type** menu.
-  
+
      In this case, select the type **A**.
   5. Enter the required data for the type of DNS record you selected.
-  
+
      In this case, for type **A**, enter **Name** and **IPv4 Address**.
   6. Click **Add Record** in the panel.
 

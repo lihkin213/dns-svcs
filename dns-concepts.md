@@ -29,7 +29,8 @@ subcollection: dns-svcs
 {{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-This document contains some concepts and definitions related to the internet's domain name system (DNS) and how it affects your usage of DNS services
+This document contains some concepts and definitions related to the internet's domain name system (DNS) and how it affects your usage of DNS services.
+{:shortdesc}
 
 
 ## DNS Zones

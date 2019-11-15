@@ -4,7 +4,7 @@ copyright:
   years: 2019
 lastupdated: "2019-11-08"
 
-keywords: dns-svcs, DNS Services, Private DNS 
+keywords: dns-svcs, DNS Services, Private DNS
 
 subcollection: dns-svcs
 
@@ -14,7 +14,7 @@ subcollection: dns-svcs
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:external: target="_blank" .external}
-{:DomainName: data-hd-keyref="DomainName"} 
+{:DomainName: data-hd-keyref="DomainName"}
 {:note: .note}
 {:tip: .tip}
 {:important: .important}
@@ -26,11 +26,14 @@ subcollection: dns-svcs
 {:screen: .screen}
 {:download: .download}
 
-# FAQ
+# FAQs
 {: #frequently-asked-questions}
 
 {{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
+
+The following section answers some frequently asked questions (FAQs) about DNS Services.
+{:shortdesc}
 
 ## How is private DNS different from public DNS?
 {: faq}
@@ -116,7 +119,7 @@ In this state the zone will not be served and all control path operations will b
 
 In general, yes. Certain IBM owned or IBM specific DNS Zone names are restricted, in other words, they can't be created in Private DNS. This includes `ibm.com`, `bluemix.net`, `softlayer.com`, `appdomain.cloud` and a few others. The zone names must be 2-level deep (for example, `example.com`). Once the zone has been added, hostnames within the zone can be multiple levels deep, per your needs (for example, you will be able to add records for `hostname.example.com`, or `hostname.subdomain.example.com`, etc.).
 
-## Can I create two DNS zones with the same name? 
+## Can I create two DNS zones with the same name?
 {: faq}
 
 Creating two DNS Zones with the same name is allowed. Use label and description to differentiate between the two.
@@ -124,9 +127,9 @@ Creating two DNS Zones with the same name is allowed. Use label and description 
 ## Can I add the same permitted network (for example, a VPC) to two DNS Zones of the same name?
 {: faq}
 
-Adding the same VPC to two DNS Zones of the same name is not allowed. 
+Adding the same VPC to two DNS Zones of the same name is not allowed.
 
- 
+
 ## What are the authoritative servers for the private DNS zones? Can I resolve the private DNS zones iteratively?
 {: faq}
 

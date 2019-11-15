@@ -4,7 +4,7 @@ copyright:
   years: 2019
 lastupdated: "2019-10-08"
 
-keywords: dns-svcs, DNS Services, Private DNS 
+keywords: dns-svcs, DNS Services, Private DNS
 
 subcollection: dns-svcs
 
@@ -14,7 +14,7 @@ subcollection: dns-svcs
 {:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
 {:external: target="_blank" .external}
-{:DomainName: data-hd-keyref="DomainName"} 
+{:DomainName: data-hd-keyref="DomainName"}
 {:note: .note}
 {:tip: .tip}
 {:important: .important}
@@ -32,6 +32,7 @@ subcollection: dns-svcs
 {: important}
 
 This section covers some possible use cases you may have while using DNS Services.
+{:shortdesc}
 
 ## Using DNS Services for VPC
 {: #using-dns-services-for-vpc}
@@ -64,5 +65,4 @@ This section covers some possible use cases you may have while using DNS Service
 
 You can use DNS Services to resolve `www.test.com` to a public address or an internal network's address. When the DNS Services resolver receives a request, it checks whether the request is for a hostname defined within a private zone for the network where the request originated. If so, the hostname is resolved privately. Otherwise, the request is forwarded to a public resolver and the response returned to the requester. This allows for a hostname such as `www.test.com` resolve differently on the Internet versus on IBM Cloud.
 
-![Split Horizons](images/split-horizon.png "Split horizons image"){: caption="Figure 1. DNS workflow" caption-side="bottom"} 
-
+![Split Horizons](images/split-horizon.png "Split horizons image"){: caption="Figure 1. DNS workflow" caption-side="bottom"}

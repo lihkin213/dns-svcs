@@ -32,6 +32,7 @@ subcollection: dns-svcs
 {: important}
 
 To better understand IBM Cloud DNS Services, it helps to know more about DNS in general.
+{:shortdesc}
 
 ## DNS overview
 {: #dns-overview}
@@ -65,4 +66,3 @@ Those who need privacy can use IBM Cloud DNS Services to ensure a level of priva
 While the Cloud DNS Service is accessible globally on the IBM Cloud network, the us-south and eu-de MZRs are optimized for latency at this time. Other MZRs will be optimized over time.
 
 For provisioning and configuring DNS records for public DNS resolution, refer to [{{site.data.keyword.cis_full_notm}}](/docs/infrastructure/cis?topic=cis-about-ibm-cloud-internet-services-cis) ({{site.data.keyword.cis_short_notm}}).
-

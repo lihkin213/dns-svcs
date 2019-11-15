@@ -34,6 +34,7 @@ subcollection: dns-svcs
 ## Using the IBM Cloud console
 {: #managing-dns-records-ui}
 DNS records can be managed from the {{site.data.keyword.ccloud_full}} console, or the API. The following sections cover the console usage.
+{:shortdesc}
 
 ### Adding DNS records
 {:#adding-dns-records}
@@ -43,7 +44,7 @@ DNS records can be managed from the {{site.data.keyword.ccloud_full}} console, o
 
 You can use the **Type** dropdown to select the type of record you want to create. Each DNS record type has a Name and Time-To-Live (TTL) associated with it.
 
-Whatever you enter into the Name field has domain name appended to it unless domain name is manually appended in the field already (for example if **`www`** or **`www.example.com`** is typed into the field, the API will handle both as **`www.example.com`**). If the exact domain name is typed into the name field, then it won't be appended on itself (for example, **`example.com`** will be handled as **`example.com`**). However, the list of DNS records only show the names without the domain name added on. As a result, **`www.example.com`** displays as **`www`** and **`example.com`** as **`example.com`**. 
+Whatever you enter into the Name field has domain name appended to it unless domain name is manually appended in the field already (for example if **`www`** or **`www.example.com`** is typed into the field, the API will handle both as **`www.example.com`**). If the exact domain name is typed into the name field, then it won't be appended on itself (for example, **`example.com`** will be handled as **`example.com`**). However, the list of DNS records only show the names without the domain name added on. As a result, **`www.example.com`** displays as **`www`** and **`example.com`** as **`example.com`**.
 
 The TTL has a default value of **`1 min`**, but can be changed by the user.
 {:note}
@@ -53,7 +54,7 @@ The TTL has a default value of **`1 min`**, but can be changed by the user.
 
 To add this record type, valid values must exist in the **Name** and **IPv4 Address** fields. A **TTL** can also be specified from the dropdown menu, with a default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Name
 * IPv4 Address
 * TTL (Default value is 1 min)
@@ -63,7 +64,7 @@ Required Fields:
 
 To add this record type, valid values must exist in the **Name** and **IPv6 Address** fields. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Name
 * IPv6 Address
 * TTL (Default value is 1 min)
@@ -73,7 +74,7 @@ Required Fields:
 
 To add this record type, a valid value must exist in the **Name** field and a fully qualified domain name must be in the **Target** (FQDN) field. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Name
 * Target (for CNAME)
 * TTL (Default value is 1 min)
@@ -83,7 +84,7 @@ Required Fields:
 
 To add this record type, a valid value must exist in the **Name** field, a fully qualified domain name must be in the **Mail Server** (FQDN)field, and a valid number must exist in the **Priority** field. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Name
 * Mail Server
 * TTL (Default value is 1 min)
@@ -94,7 +95,7 @@ Required Fields:
 
 To add this record type, an existing A or AAAA records must be created beforehand that are not already associated with another PTR record. A dropdown allows you to select an existing record, and doing so is mandatory. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Select existing record
 * TTL (Default value is 1 min)
 
@@ -103,7 +104,7 @@ Required Fields:
 
 To add this record type, valid values must exist in the **Name**, **Service Name** and **Target** fields. Use the dropdown menu to select a **protocol**, which defaults to the UDP protocol. Additionally, you can specify **Priority**, **Weight** and **Port**. These three fields default to a value of **`1`**. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Name
 * Service Name
 * Target
@@ -118,7 +119,7 @@ Required Fields:
 
 To add this record type, valid values must exist in the **Name** and **Content** fields. A **TTL** can also be specified from the dropdown menu, with the default value of **`1 min`**.
 
-Required Fields: 
+Required Fields:
 * Name
 * Content
 * TTL (Default value is 1 min)
