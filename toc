@@ -21,7 +21,6 @@ DNS Services
 
     {: .navgroup id="reference"}
     [DNS Services API](https://{DomainName}/apidocs)
-    [DNS Services CLI](https://{DomainName}/docs/dns-svcs-cli-plugin)
     {: .navgroup-end}
 
     {: .navgroup id="help"}
