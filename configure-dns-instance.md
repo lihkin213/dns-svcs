@@ -27,30 +27,30 @@ subcollection: dns-svcs
 # Setting up your DNS instance
 {: #setting-up-your-dns-instance}
 
-{{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
+{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
 This section describes how to set up a DNS instance, DNS zones, permitted networks, and resource records.
 {:shortdesc}
 
-## Using the IBM Cloud console
+## Using the {{site.data.keyword.cloud_notm}} console
 {: #setting-up-your-dns-instance-ui}
 
 ### Creating a DNS instance
 {: #creating-a-dns-instance}
 
-  1. Open the IBM Cloud **Catalog** page.
+  1. Open the {{site.data.keyword.cloud_notm}} **Catalog** page.
   2. Select the **Networking** category.
-  3. Click the **DNS Services** tile.  
+  3. Click the **{{site.data.keyword.dns_short}}** tile.  
      Currently, the default and only available plan is free.
   4. Enter **Service name** and click **Create**.
 
-   You are redirected to the DNS Services instance page showing **DNS Zones** information.
+   You are redirected to the {{site.data.keyword.dns_short}} instance page showing **DNS Zones** information.
 
 ### Creating a DNS zone
 {: #creating-a-dns-zone}
 
-  1. Navigate to the resource page and select your DNS Services instance.
+  1. Navigate to the Resource page and select your {{site.data.keyword.dns_short}} instance.
   2. On the DNS Zones page, click **Create Zone**.
   3. In the Create Zone panel, enter your zone name. Optionally, enter a label and description.
   4. Click **Create Zone** in the panel.
@@ -60,7 +60,7 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
 ### Creating a permitted network
 {: #creating-a-dns-permitted-network}
 
-  1. Navigate to the resource page and select your DNS Services instance. Then select your zone.
+  1. Navigate to the Resource page and select your {{site.data.keyword.dns_short}} instance. Then select your zone.
   2. Click the **Permitted Networks** tab.
   3. Click **Add Network**.
   4. In the Add Network panel, select the region of your VPC from the **Network Region** menu.
@@ -72,10 +72,10 @@ This section describes how to set up a DNS instance, DNS zones, permitted networ
 ### Creating an "A" resource record
 {: #creating-an-a-resource-record}
 
-  1. Navigate to the resource page and select your DNS Services instance. Then select your zone.
+  1. Navigate to the Resource page and select your {{site.data.keyword.dns_short}} instance. Then select your zone.
   2. On the DNS Details page, click the **DNS Records** tab.
   3. Click **Add Record**.
-  4. In the Add Record panel, select the type of DNS record you want to add from the **Type** menu.
+  4. In the Add Record panel, select the type of DNS record that you want to add from the **Type** menu.
 
      In this case, select the type **A**.
   5. Enter the required data for the type of DNS record you selected.
@@ -102,25 +102,23 @@ Example:
 ### Creating a DNS instance
 {: #creating-dns-instance-api}
 
-If your account is enabled for the experimental DNS Services, it appears in the [experimental catalog](https://{DomainName}/catalog/labs). You can also navigate directly to the DNS Services instance creation by going to the [DNS Services catalog entry](https://{DomainName}/catalog/services/dns-services).
+If your account is enabled for the experimental {{site.data.keyword.dns_short}}, it appears in the [experimental catalog](https://{DomainName}/catalog/labs). You can also navigate directly to the {{site.data.keyword.dns_short}} instance creation by going to the [{{site.data.keyword.dns_short}} catalog entry](https://{DomainName}/catalog/services/dns-services).
 
 ### Creating a DNS zone
 {: #creating-dns-zone-api}
 
-#### Before you begin
-{: #configure-dns-before-you-begin}
 You must create a VPC so that you can link your DNS zone to the VPC.
 
-First store the API endpoint in a variable so you can use it in API requests without having to type the full URL. For example, to store the endpoint in a variable, run this command:
+Store the API endpoint in a variable so you can use it in API requests without having to type the full URL. For example, to store the endpoint in a variable, run this command:
 
 ```bash
 DNSSVCS_ENDPOINT=https://api.dns-svcs.cloud.ibm.com
 ```
 {:pre}
 
-To verify that this variable was saved, run **`echo $DNSSVCS_ENDPOINT`** and make sure the response is not empty.
+To verify that this variable is saved, run `echo $DNSSVCS_ENDPOINT` and ensure the response is not empty.
 
-After you gather details about your instance, run the following **curl** command to create a DNS zone:
+After you gather details about your instance, run the following `curl` command to create a DNS zone:
 
 **Request**
 ```bash
@@ -129,7 +127,7 @@ curl -X POST \
   -H "Authorization: $TOKEN" \
   -d '{
         "name": "example.com",
-        "description": "The DNS zone is used for VPCs in us-east region",
+        "description": "The DNS zone is used for VPCs in the us-east region",
         "label": "us-east"
   }'
 ```
@@ -146,19 +144,19 @@ curl -X POST \
   "modified_on": "2019-01-01T05:20:00.12345Z",
   "instance_id": "1407a753-a93f-4bb0-9784-bcfc269ee1b3",
   "name": "example.com",
-  "description": "The DNS zone is used for VPCs in us-east region",
+  "description": "The DNS zone is used for VPCs in the us-east region",
   "state": "pending_network_add",
   "label": "us-east"
 }
 ```
-{:pre}
+{:screen}
 
 ### Creating a permitted network
 {: #creating-permitted-network-api}
 
 Private DNS allows name resolution only from a VPC that was added to the DNS zone.
 
-When a DNS zone gets created, its Status is **`PENDING_NETWORK_ADD`**. To move the zone to **`ACTIVE`** state, add an entry for your VPC to the zone's permitted network.
+When a DNS zone gets created, its Status is `PENDING_NETWORK_ADD`. To move the zone to `ACTIVE` state, add an entry for your VPC to the zone's permitted network.
 
 By adding your VPC to your zone's permitted network, compute instances on your VPC can access these resource records.
 
@@ -188,7 +186,7 @@ curl -X POST \
   "type": "vpc"
 }
 ```
-{:pre}
+{:screen}
 
 ### Creating an "A" resource record
 {: #creating-resource-records}
@@ -211,10 +209,10 @@ curl -X POST \
 ```
 {:pre}
 
-* `name`: FQDN (such as www.example.com) or the host (such as www)
-* `type`: Type of Record - A, AAAA, SRV, etc.
-* `ip`: IP address for the Name.
-* `ttl`: Time to live for the RR
+* `name`: FQDN, such as `www.example.com` or the host, such as `www`.
+* `type`: Type of Record - A, AAAA, SRV, and so on.
+* `ip`: IP address for the name.
+* `ttl`: Time to live for the resource record.
 
 **Response**
 
@@ -231,7 +229,7 @@ curl -X POST \
    }
 }
 ```
-{:pre}
+{:screen}
 
 ### Verifying the setup
 {: #verifying-the-setup-api}

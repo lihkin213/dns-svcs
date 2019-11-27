@@ -25,13 +25,13 @@ subcollection: dns-svcs
 {:screen: .screen}
 {:download: .download}
 
-# About DNS Services
+# About {{site.data.keyword.dns_short}}
 {: #about-dns-services}
 
-{{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
+{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-To better understand IBM Cloud DNS Services, it helps to know more about DNS in general.
+To better understand {{site.data.keyword.dns_full}}, it helps to know more about DNS in general.
 {:shortdesc}
 
 ## DNS overview
@@ -41,28 +41,29 @@ Computers on a network can find one another by IP addresses. To make it easier t
 
 That way, people can use human friendly domain names instead of obscure, hard-to-remember, machine-oriented data.
 
-## DNS Services
+## {{site.data.keyword.dns_short}}
 {: dns-services-overview}
 
-IBM Cloud DNS Services allow you to:
-* Create DNS zones that are collections for holding domain names
-* Create DNS resource records under these zones
-* Specify access controls used for the DNS resolution of resource records on a zone-wide level
+{{site.data.keyword.dns_short}} allow you to:
+  * create DNS zones that are collections for holding domain names.
+  * create DNS resource records under these zones.
+  * specify access controls used for the DNS resolution of resource records on a zone-wide level.
 
-IBM Cloud DNS Services also maintains its own world-wide set of DNS resolvers. Computer machines provisioned under {{site.data.keyword.cloud_notm}} on an {{site.data.keyword.cloud_notm}} network can use resource records configured through IBM Cloud DNS Services by querying IBM Cloud DNS Services' resolvers.
+{{site.data.keyword.dns_short}} also maintains its own world-wide set of DNS resolvers. Computer machines provisioned under {{site.data.keyword.cloud_notm}} on an {{site.data.keyword.cloud_notm}} network can use resource records configured through IBM Cloud DNS Services by querying {{site.data.keyword.dns_short}} resolvers.
 
-Resource records and zones configured through IBM Cloud DNS Services:
-* Are separated from the wider, public DNS and their publicly accessible records
-* Are hidden from machines outside of and not part of the {{site.data.keyword.cloud_notm}} network
-* Are accessible only from machines that you authorize on the {{site.data.keyword.cloud_notm}} network
-* Are resolvable only via the resolvers provided by the service
-
-
-![Diagram of DNS services overview](images/dns-svcs-overview.png "Diagram of DNS services overview"){: caption="Figure 1. A diagram of DNS Services workflow" caption-side="bottom"}
+Resource records and zones configured through {{site.data.keyword.dns_short}} are:
+  * separated from the wider, public DNS and their publicly accessible records.
+  * hidden from machines outside of and not part of the {{site.data.keyword.cloud_notm}} network.
+  * accessible only from machines that you authorize on the {{site.data.keyword.cloud_notm}} network.
+  * resolvable only via the resolvers provided by the service.
 
 
-Those who need privacy can use IBM Cloud DNS Services to ensure a level of privacy for information specified in their zones and resource records.
+![Diagram of DNS services overview](images/dns-svcs-overview.png "Diagram of {{site.data.keyword.dns_short}} overview"){: caption="Figure 1. A diagram of {{site.data.keyword.dns_short}} workflow" caption-side="bottom"}
 
-While the Cloud DNS Service is accessible globally on the IBM Cloud network, the us-south and eu-de MZRs are optimized for latency at this time. Other MZRs will be optimized over time.
 
-For provisioning and configuring DNS records for public DNS resolution, refer to [{{site.data.keyword.cis_full_notm}}](/docs/infrastructure/cis?topic=cis-about-ibm-cloud-internet-services-cis) ({{site.data.keyword.cis_short_notm}}).
+{{site.data.keyword.dns_short}} ensures a level of privacy for information specified in your zones and resource records.
+
+While {{site.data.keyword.dns_short}} is accessible globally on the IBM Cloud network, the `us-south` and `eu-de` MZRs are optimized for latency at this time. Other MZRs will be optimized over time.
+
+{{site.data.keyword.dns_short}} is private only. For provisioning and configuring DNS records for public DNS resolution, refer to [{{site.data.keyword.cis_full_notm}}](/docs/infrastructure/cis?topic=cis-about-ibm-cloud-internet-services-cis) ({{site.data.keyword.cis_short_notm}}).
+{: note}

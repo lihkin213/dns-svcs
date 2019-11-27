@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-25"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -28,35 +28,34 @@ subcollection: dns-svcs
 # Managing DNS zones
 {:#managing-dns-zones}
 
-{{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
+{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-If you have not already created a DNS service instance, refer to [Create a DNS Services Instance](/docs/infrastructure/dns-svcs?topic=dns-svcs-getting-started#step-1-create-dns-services-instance) before managing DNS zones.
+You must have an {{site.data.keyword.dns_full}} instance before managing DNS zones. Refer to [Create a {{site.data.keyword.dns_short}} instance](/docs/infrastructure/dns-svcs?topic=dns-svcs-getting-started#step-1-create-dns-services-instance) for more information.
 
-## Using the IBM Cloud console
+## Using the {{site.data.keyword.cloud_notm}} console
 {: #managing-dns-zones-ui}
-DNS zones can be managed through the {{site.data.keyword.cloud_full}} console, or the API. The following sections cover the console usage.
+DNS zones can be managed through the {{site.data.keyword.cloud}} console, or the API. The following sections cover the console usage.
 {:shortdesc}
 
 ### Creating DNS zone
 {:#create-dns-zone-ui}
 
-  1. From the resource page, select the desired DNS Services instance.
-  2. Click the **Create Zone** button on the **DNS Zones** page. A panel appears.
-  3. In the side panel, enter your zone name in the **Name** field.
-  4. The **Label** and **Description** are optional fields.
-  5. Click **Create Zone** button.
+  1. From the Resource page, select the desired {{site.data.keyword.dns_short}} instance.
+  2. Click the **Create Zone** button on the **DNS Zones** page.
+  3. In the panel that appears, enter your zone name in the **Name** field. Optionally, enter **Label** and **Description** fields.
+  5. Click **Create Zone**.
 
-If the zone creation is successful, you are directed to the **Zone Details** page.
+If the zone creation is successful, you are directed to the Zone Details page.
 
 If the zone creation is unsuccessful, an error notification appears with information about what caused the error.
 
 ### Editing DNS zone
 {:#edit-dns-zone-ui}
 
-  1. From the **DNS Zones** page, select the desired zone. **Label** and **Description** options appear.
-  2. To edit label, click on the edit icon for **Label**, enter the label and click **Save**.
-  3. To edit description, click on the edit icon for **Description**, enter the description and click **Save**.
+  1. From the **DNS Zones** page, select your zone. **Label** and **Description** options appear.
+  2. Click the edit icon for **Label**, then enter the label and click **Save**.
+  3. Click the edit icon for **Description**, then enter the description and click **Save**.
 
 ### Deleting DNS zone
 {:#delete-dns-zone-ui}
@@ -76,10 +75,10 @@ dnssvcs_endpoint=https://api.dns-svcs.cloud.ibm.com
 
 To verify that this variable was saved, run `echo $DNSSVCS_ENDPOINT` and make sure the response is not empty.
 
-### Create a DNS zone
+### Creating a DNS zone
 {: #create-dns-zone-api}
 
-Create a new zone by using the following curl command:
+Create a new zone by using the following `curl` command:
 
 **Request**
 
@@ -113,15 +112,15 @@ curl -X POST \
     "messages": []
 }
 ```
-{:pre}
+{:screen}
 
 For future reference, the "id" in response is used as `DNSZONE_ID`. 
 {:note}
 
-### Get a DNS Zone
+### Getting a DNS zone
 {: #get-dns-zone-api}
 
-Use the following command to get a zone which has already been created. 
+Use the following command to get an existing zone. 
 
 **Request**
 
@@ -151,12 +150,12 @@ curl -X GET \
     "messages": []
 }
 ```
-{:pre}
+{:screen}
 
-### Update a DNS zone
+### Updating a DNS zone
 {: #update-dns-zone-api}
 
-Use the following command to update a zone which has already been created. The description and label are the only fields that can be updated. All other fields are read-only.
+Use the following command to update an existing zone. You can update the description and label fields. All other fields are read-only.
 
 **Request**
 
@@ -187,13 +186,13 @@ curl -X PATCH \
   "state": "PENDING_NETWORK_ADD"
 }
 ```
-{:pre}
+{:screen}
 
 
-### List DNS Zones
+### Listing DNS zones
 {: #list-dns-zones-api}
 
-If you have a one or more zones in your domain you can list them by using the following curl command: 
+List one or more zones in your domain by using the following `curl` command: 
 
 **Request**
 
@@ -225,9 +224,9 @@ curl -X GET \
     "messages": []
 }
 ```
-{:pre}
+{:screen}
 
-### Delete a DNS Zone
+### Deleting a DNS zone
 {: #delete-dns-zone-api}
 
 **Request**
@@ -251,4 +250,4 @@ curl -X DELETE \
     "messages": []
 }
 ```
-{:pre}
+{:screen}

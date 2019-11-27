@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-04"
+lastupdated: "2019-11-25"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -27,10 +27,10 @@ subcollection: dns-svcs
 # Managing permitted networks
 {: #managing-permitted-networks}
 
-{{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
+{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-This section describes how to manage permitted networks for your DNS Services instance.
+This section describes how to manage permitted networks for your {{site.data.keyword.dns_full}} instance.
 {:shortdesc}
 
 ## Using the IBM Cloud console
@@ -41,14 +41,14 @@ This section describes how to manage permitted networks for your DNS Services in
 
 DNS Services is a global service, therefore you may add permitted networks (for example, a VPC) from any {{site.data.keyword.cloud}} region. This request adds the network to the DNS zone, thereby giving the network access to the zone. You may add up to 10 permitted networks to a DNS zone.
 
-- Select the desired zone from the table on the DNS Zones page.
-- Select the **Permitted Networks** tab.
-- Click the **Add Network** button.
-- In the panel that appears, select the region of your network from the **Network Region** dropdown menu.
-- Select the desired network from the **Network** dropdown menu that appears.
-- Click **Add Network**.
+1. Select the desired zone from the table on the DNS Zones page.
+1. Select the **Permitted Networks** tab.
+1. Click the **Add Network** button.
+1. In the panel that appears, select the region of your network from the **Network Region** dropdown menu.
+1. Select the desired network from the **Network** dropdown menu that appears.
+1. Click **Add Network**.
 
-Adding the same VPC to two DNS Zones of the same name is not allowed.
+Adding the same VPC to two DNS zones of the same name is not allowed.
 {:note}
 
 ### Removing a permitted network
@@ -56,7 +56,7 @@ Adding the same VPC to two DNS Zones of the same name is not allowed.
 
 From the permitted networks table, click the **Delete** icon. Confirm the delete process in the dialog box that appears.
 
-If a network has been added to a zone, the zone cannot be deleted until the permitted network is deleted from the zone.
+If a network exists in a zone, you cannot delete the zone until the permitted network is deleted.
 {:note}
 
 ## Using the API
@@ -74,7 +74,7 @@ To verify that this variable was saved, run **`echo $DNSSVCS_ENDPOINT`** and mak
 ### Adding permitted networks
 {: #adding-permitted-networks-api}
 
-A DNS zone's initial state is **`PENDING_NETWORK_ADD`**, because its permitted network list is empty when the DNS zone is created. When a permitted network is added to the DNS zone's permitted networks, the state changes to **`ACTIVE`**.
+A DNS zone's initial state is `PENDING_NETWORK_ADD`, because its permitted network list is empty when the DNS zone is created. When a permitted network is added to the DNS zone's permitted networks, the state changes to `ACTIVE`.
 
 
 **Request**
@@ -111,13 +111,13 @@ curl -X POST \
 ```
 {:pre}
 
-For future requests the ID in the response is referenced as **`Permitted_Network_ID`**.
+For future requests, the ID in the response is referenced as **`Permitted_Network_ID`**.
 {:note}
 
-### List a permitted network
+### Listing a permitted network
 {: #get-permitted-network-api}
 
-List a specific permitted network from your instance using the Permitted Network ID.
+List a specific permitted network from your instance using the permitted network ID.
 
 **Request**
 
@@ -141,9 +141,9 @@ curl -X GET \
         "type": "vpc"
 }
 ```
-{:pre}
+{:screen}
 
-### List permitted networks
+### Listing permitted networks
 {: #list-permitted-networks-api}
 
 List all permitted networks for your DNS zone.
@@ -174,7 +174,7 @@ curl -X GET \
     ]
 }
 ```
-{:pre}
+{:screen}
 
 ### Removing a permitted network
 {: #removing-permitted-networks-api}
@@ -194,4 +194,4 @@ curl -X DELETE \
 ```
          HTTP 204 returned, no content in response
 ```
-{:pre}
+{:screen}

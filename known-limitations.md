@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-11-25"
 
 keywords: known issues, DNS Services
 
@@ -22,11 +22,11 @@ subcollection: dns-svcs
 # Known limitations
 {: #known-limitations}
 
-{{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
+{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
 {: important}
 
-This section details some of the known limitations of DNS Services.
+This section details some of the known limitations of {{site.data.keyword.dns_short}}.
 {:shortdesc}
 
- * This service is supported for VPCs (Gen1) that are created after 10/8/2019. To use the service for VPCs created prior to that, follow [this process](https://www.ibm.com/support/pages/node/1086243) to open a support ticket.
+ * This service is supported for VPCs (Gen1) that are created after 10/8/2019. To use the service for VPCs created prior to that, follow [this process](https://www.ibm.com/support/pages/node/1086243) to open a support case.
  * Name resolution is only supported via UDP (not TCP).
