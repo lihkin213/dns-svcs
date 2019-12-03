@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-08"
+lastupdated: "2019-12-03"
 
 keywords: dns-svcs, DNS Services, Private DNS
 
@@ -64,4 +64,4 @@ This section covers some possible use cases you might have while using {{site.da
 
 You can use {{site.data.keyword.dns_short}} to resolve `www.example.com` to a public address or to an internal network address. When the {{site.data.keyword.dns_short}} resolver receives a request, it checks whether the request is for a hostname defined within a private zone for the network where the request originated. If so, the hostname is resolved privately. Otherwise, the request is forwarded to a public resolver and the response returned to the requester. This allows for a hostname such as `www.example.com` to resolve differently on the internet versus on {{site.data.keyword.cloud_notm}}.
 
-![Split Horizons](images/split-horizon.png "Split horizons image"){: caption="Figure 1. DNS workflow" caption-side="bottom"}
+![Split Horizons](images/dns-svcs-overview.png "Split horizons image"){: caption="Figure 1. DNS workflow" caption-side="bottom"}
