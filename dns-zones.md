@@ -38,7 +38,7 @@ You must have an {{site.data.keyword.dns_full}} instance before managing DNS zon
 DNS zones can be managed through the {{site.data.keyword.cloud}} console, or the API. The following sections cover the console usage.
 {:shortdesc}
 
-### Creating DNS zone
+### Creating a DNS zone
 {:#create-dns-zone-ui}
 
   1. From the Resource page, select the desired {{site.data.keyword.dns_short}} instance.
@@ -50,14 +50,14 @@ If the zone creation is successful, you are directed to the Zone Details page.
 
 If the zone creation is unsuccessful, an error notification appears with information about what caused the error.
 
-### Editing DNS zone
+### Editing a DNS zone
 {:#edit-dns-zone-ui}
 
   1. From the **DNS Zones** page, select your zone. **Label** and **Description** options appear.
   2. Click the edit icon for **Label**, then enter the label and click **Save**.
   3. Click the edit icon for **Description**, then enter the description and click **Save**.
 
-### Deleting DNS zone
+### Deleting a DNS zone
 {:#delete-dns-zone-ui}
 
   1. From the **DNS Zones** page, click the delete icon from the row for the zone you wish to delete. A confirmation dialog appears.

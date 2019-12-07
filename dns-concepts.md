@@ -4,7 +4,7 @@ copyright:
 
   years: 2019
 
-lastupdated: "2019-10-14"
+lastupdated: "2019-12-04"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc, Access Control Lists, permitted networks
 
@@ -33,10 +33,10 @@ This document contains some concepts and definitions related to the internet's d
 {:shortdesc}
 
 
-## DNS Zones
+## DNS zones
 {: #what-is-zone}
 
-A DNS zone is a collection of resource records which belongs to a single parent instance. All resource records have the zone's domain name as a suffix. You can create, update, delete, get, and list the DNS Zones using `curl` commands.
+A DNS zone is a collection of resource records, which belongs to a single parent instance. All resource records have the zone's domain name as a suffix. You can create, update, delete, get, and list the DNS Zones using `curl` commands.
 
 See [Managing DNS zones](/docs/dns-svcs?topic=dns-svcs-managing-dns-zones) for more information on how to manage DNS zones.
 
@@ -49,12 +49,12 @@ Permitted networks are the VPCs that can perform name resolution on the DNS Zone
 
 See [Managing permitted networks](/docs/dns-svcs?topic=dns-svcs-managing-permitted-networks) for more information.
 
-## Resource Records (RR)
+## Resource records (RR)
 {: #what-are-resource-records}
 
-Resource Records (RR) are entries in the DNS Zone files. The most common type is an A record that provides a mapping between a name and an IPv4 address.
+Resource records (RR) are entries in the DNS zone files. The most common type is an A record that provides a mapping between a name and an IPv4 address.
 
-{{site.data.keyword.dns_short}} supports the following types of Resource Records:
+{{site.data.keyword.dns_short}} supports the following types of resource records:
 
 ### A (IPv4 Address Record)
 {: #record-type-a}

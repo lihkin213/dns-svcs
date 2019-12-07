@@ -121,6 +121,10 @@ To verify that this variable is saved, run `echo $DNSSVCS_ENDPOINT` and ensure t
 After you gather details about your instance, run the following `curl` command to create a DNS zone:
 
 **Request**
+
+* INSTANCE_ID: GUID of the instance
+* TOKEN: IAM OAUTH token
+
 ```bash
 curl -X POST \
   $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones \
@@ -133,8 +137,6 @@ curl -X POST \
 ```
 {:pre}
 
-* INSTANCE_ID: GUID of the instance
-* TOKEN: IAM OAUTH token
 
 **Response**
 ```json
@@ -194,6 +196,12 @@ curl -X POST \
 An A Record (Address Record) is a DNS resource record that associates a domain or subdomain to an IPv4 address.
 
 **Request**
+
+* `name`: FQDN, such as `www.example.com` or the host, such as `www`.
+* `type`: Type of Record - A, AAAA, SRV, and so on.
+* `ip`: IP address for the name.
+* `ttl`: Time to live for the resource record.
+
 ```bash
 curl -X POST \
   $DNSSVCS_ENDPOINT/v1/instances/$INSTANCE_ID/dnszones/$DNSZONE_ID/resource_records \
@@ -208,11 +216,6 @@ curl -X POST \
   }'
 ```
 {:pre}
-
-* `name`: FQDN, such as `www.example.com` or the host, such as `www`.
-* `type`: Type of Record - A, AAAA, SRV, and so on.
-* `ip`: IP address for the name.
-* `ttl`: Time to live for the resource record.
 
 **Response**
 

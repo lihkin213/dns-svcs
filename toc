@@ -17,10 +17,11 @@ DNS Services
     permitted-networks.md
     dns-records.md
     resolver-config.md
+    iam.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [DNS Services API](https://{DomainName}/apidocs)
+    dns-svcs-api.md
     [DNS Services CLI](https://{DomainName}/docs/dns-svcs-cli-plugin)
     {: .navgroup-end}
 

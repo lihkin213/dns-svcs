@@ -76,6 +76,9 @@ To verify that this variable was saved, run **`echo $DNSSVCS_ENDPOINT`** and mak
 
 A DNS zone's initial state is `PENDING_NETWORK_ADD`, because its permitted network list is empty when the DNS zone is created. When a permitted network is added to the DNS zone's permitted networks, the state changes to `ACTIVE`.
 
+**Parameters**
+
+* DNSZONE_ID: When you create a zone, the DNSZONE_ID is returned in the response as **`id`**.
 
 **Request**
 
@@ -92,9 +95,6 @@ curl -X POST \
 ```
 {:pre}
 
-**Parameters**
-
-* DNSZONE_ID: When you create a zone, the DNSZONE_ID is returned in the response as **`id`**.
 
 **Response**
 

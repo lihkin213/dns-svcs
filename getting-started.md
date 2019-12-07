@@ -49,9 +49,7 @@ These steps enable you to query any record added to the zone from the permitted 
 {:#before-you-begin-getting-started}
 
 1. To use {{site.data.keyword.dns_short}} you must have a VPC in the {{site.data.keyword.cloud_notm}}. Follow this link to [Create the VPC](/docs/vpc-on-classic?topic=vpc-on-classic-creating-a-vpc-using-the-ibm-cloud-console) using the console, or [create the VPC using a CLI](/docs/vpc-on-classic?topic=vpc-on-classic-creating-a-vpc-using-the-ibm-cloud-cli).
-
 1. Create a virtual server instance (VSI) within the VPC.
-
 1. The VSI on the VPC must be configured to use the private DNS resolvers (161.26.0.7, 161.26.0.8). For example, on some Linux distributions, this is done by editing the file `/etc/resolv.conf`. It may also be possible to override the default DNS resolvers using `cloud-init` during server boot up. Consult your operating system manuals for more information. When editing configuration files, ensure that you keep a backup copy of the existing configuration in case it needs to be restored.
 
 While the private DNS resolvers are required to resolve private DNS names, they also resolve public DNS names if the request is for a name that is not defined to be in a private DNS zone for the originating network/VPC.
@@ -100,7 +98,7 @@ This request adds the VPC network to the zone, which gives the network access to
 1. Input the required data for the type of DNS record selected.
 1. Click **Add Record**.
 
-## Testing if the DNS Name resolution works from the VPC
+## Testing if the DNS name resolution works from the VPC
 {:#step-5-test-if-the-dns-name-resolution-works}
 
 Test whether the zone resolution works using a **`dig`** from the VSI on your VPC. The following command should yield a resolution as the result.

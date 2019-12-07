@@ -59,7 +59,7 @@ This section covers some possible use cases you might have while using {{site.da
      {: note}
   5. The result is that traffic from the development VPC only sees records from the development DNS zone and similarly for all the other environments. This way, you can use the same zone name in all environments, with the results tailored to each respective environment.
 
-## Using {{site.data.keyword.dns_short}} with Split Horizon Capabilities
+## Using {{site.data.keyword.dns_short}} with Split Horizon capabilities
 {: #using-dns-services-with-split-horizon-capabilities}
 
 You can use {{site.data.keyword.dns_short}} to resolve `www.example.com` to a public address or to an internal network address. When the {{site.data.keyword.dns_short}} resolver receives a request, it checks whether the request is for a hostname defined within a private zone for the network where the request originated. If so, the hostname is resolved privately. Otherwise, the request is forwarded to a public resolver and the response returned to the requester. This allows for a hostname such as `www.example.com` to resolve differently on the internet versus on {{site.data.keyword.cloud_notm}}.
