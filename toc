@@ -22,7 +22,7 @@ DNS Services
 
     {: .navgroup id="reference"}
     dns-svcs-api.md
-    [DNS Services CLI](https://{DomainName}/docs/dns-svcs-cli-plugin)
+    /dns-svcs-cli-plugin/dns-svcs-cli-plugin-dns-services-cli-commands
     {: .navgroup-end}
 
     {: .navgroup id="help"}

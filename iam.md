@@ -4,7 +4,7 @@ copyright:
 
   years: 2019
 
-lastupdated: "2019-12-06"
+lastupdated: "2019-12-10"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc, Access Control Lists, IAM, permitted networks
 
@@ -43,25 +43,37 @@ Policies enable you to grant access at different levels. Some of the options inc
 - Access to an individual service instance in your account.
 - Access to a specific resource within an instance.
 
+## Roles and permissions
+
+With {{site.data.keyword.cloud_notm}} IAM, you can manage and define access for users and resources in your account.
+
+To simplify access, {{site.data.keyword.dns_full}} aligns with {{site.data.keyword.cloud_notm}} IAM roles so that each user has a different view of the service, according to the role the user is assigned. If you are a security admin for your service, you can assign {{site.data.keyword.cloud_notm}} IAM roles that correspond to the specific {{site.data.keyword.dns_full}} permissions you want to grant to members of your team.
+
+This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of {{site.data.keyword.dns_full}}. For complete IAM documentation, see [Managing access](/docs/iam?topic=iam-cloudaccess) in {{site.data.keyword.cloud_notm}}.
+{:note}
+
+### Platform access roles
+
+Use platform access roles to grant permissions at the account level, such as the ability to create or delete instances in your {{site.data.keyword.cloud_notm}} account.
+
+| Action	                                       | Role                                     |
+| ---------------------------------------------- | :--------------------------------------- |
+|View {{site.data.keyword.dns_full}} instances 	 | Administrator, Operator, Editor, Viewer  |
+|Create {{site.data.keyword.dns_full}} instances | Administrator, Editor                    |
+|Delete {{site.data.keyword.dns_full}} instances | Administrator, Editor                    |
+
+### Service access roles
+
+Use service access roles to grant permissions at the service level, such as the ability to view, create, or delete DNS zones, resource records, and permitted networks.
+
+The following table shows how service access roles map to {{site.data.keyword.dns_full}} permissions.
+
+| Role    | Description       | Actions  |
+| :------ | :---------------- | :------- |
+| Reader  | A reader can browse a high-level view of DNS zones, resource records, and permitted networks. Readers cannot create, delete or modify any resources under {{site.data.keyword.dns_full}} instances. | View DNS zones, resource records, and permitted networks. |
+| Writer  | A writer can modify DNS zones and resource records, in addition to actions that a reader can perform. | All actions that a reader can perform, also can update DNS zones and resource records. |
+| Manager | A manager can perform all actions that a reader and writer can perform, including the ability to create and delete DNS zones, create and delete resource records, and also add and remove permitted networks. | All actions that a Reader or a Writer can perform, also can create and delete DNS zones. Additionally, can create and delete resource records records, and add or remove permitted networks. |
+
 ## Working with permitted network (VPC) related IAM access
 
-To add or remove a permitted network (VPC) to the DNS zone, a user must have at least `Operator` level access to all Resource Types in VPC Infrastructure Services. To provide `Operator` level access to the VPC, follow these steps:
-
-1. Go to `cloud.ibm.com`.
-1. Click the **Manage** menu list, and select **Access (IAM)**.
-1. Click **Access groups** in the left navigation menu.
-1. Click **Create**.
-1. Enter a Name and Description in the window that appears, and then click **Create**.
-1. Click **Access policies** and then click **Assign access**.
-1. Click **Assign access to resources**.
-1. Select **VPC Infrastructure Services** in the Services list menu.
-1. Select **All resource types** in the Resource Type list menu.
-1. Check the **Operator** checkbox in the Platform access list.
-1. Select **Users** in the left navigation menu.
-1. Click **Invites users**. 
-1. Enter the user's email address in the input box.
-1. Click **Add** in the row for the Access group you created, and then click **Invite**.
-
-This provides the user with `Operator` level access to add or remove a permitted network to the DNS zone.
-
-
+To add or remove a permitted network (VPC) to the DNS zone, a user must have at least Operator level access to all resource types in VPC Infrastructure Services. To learn more about providing Operator level access to the VPC, see [VPC: Getting started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
