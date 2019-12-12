@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="dns-svcs" category="network" audience="service" href="/docs/dns-svcs?topic=dns-svcs-getting-started" path="dns-svcs"}
-DNS Services
+DNS Services (Beta)
 
     {: .navgroup id="learn"}
     getting-started.md

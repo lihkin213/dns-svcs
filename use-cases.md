@@ -28,9 +28,6 @@ subcollection: dns-svcs
 # Use cases
 {: #use-cases}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 This section covers some possible use cases you might have while using {{site.data.keyword.dns_full}}.
 {:shortdesc}
 
@@ -50,7 +47,7 @@ This section covers some possible use cases you might have while using {{site.da
 {: #creating-multiple-zones-with-duplicate-names}
 
   1. Create an instance of {{site.data.keyword.dns_short}}.
-  2. Create a DNS zone for each environment (for example, production, staging, development, testing). When creating the zone, be sure to include a description indicating what environment the zone is for. The zone name is the same for each zone (for example, `testing.com`). 
+  2. Create a DNS zone for each environment (for example, production, staging, development, testing). When creating the zone, be sure to include a description indicating what environment the zone is for. The zone name is the same for each zone (for example, `testing.com`).
      A single {{site.data.keyword.dns_short}} instance can only contain 10 zones.
      {: note}
   3. Add a zone to the instance of {{site.data.keyword.dns_short}}.

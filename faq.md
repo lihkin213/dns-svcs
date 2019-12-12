@@ -29,9 +29,6 @@ subcollection: dns-svcs
 # FAQs
 {: #frequently-asked-questions}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 Have a question about {{site.data.keyword.dns_full}}? Review frequently asked questions, which provide answers to provisioning concerns, application access, and other common inquiries.
 {:shortdesc}
 

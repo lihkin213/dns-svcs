@@ -26,10 +26,7 @@ subcollection: dns-svcs
 # Getting started with {{site.data.keyword.dns_full_notm}}
 {: #getting-started}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
-{{site.data.keyword.dns_full}} provides private DNS to Virtual Private Cloud (VPC) users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from explicitly permitted networks such as VPCs in an account.
+{{site.data.keyword.dns_full}} (currently in Beta release) provides private DNS to Virtual Private Cloud (VPC) users. Private DNS zones are resolvable only on {{site.data.keyword.cloud_notm}}, and only from explicitly permitted networks such as VPCs in an account.
 
 Create a {{site.data.keyword.dns_short}} instance using the {{site.data.keyword.cloud_notm}} console.
 {:shortdesc}

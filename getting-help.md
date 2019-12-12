@@ -19,9 +19,6 @@ subcollection: dns-svcs
 # Getting help and support
 {: #gettinghelp}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 If you have problems or questions when using {{site.data.keyword.dns_full}}, you can get help by searching for information or by asking questions through one of the forums listed below. You can also open a [support case](https://cloud.ibm.com/unifiedsupport/supportcenter).
 {:shortdesc}
 

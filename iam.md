@@ -4,7 +4,7 @@ copyright:
 
   years: 2019
 
-lastupdated: "2019-12-10"
+lastupdated: "2019-12-12"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc, Access Control Lists, IAM, permitted networks
 
@@ -30,9 +30,6 @@ subcollection: dns-svcs
 # Managing IAM and {{site.data.keyword.dns_full_notm}}
 {: #iam}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only. 
-{: important}
-
 {{site.data.keyword.dns_full}} leverages IAM to perform authorization and Authentication.
 
 Access to service name service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the service name service in your account must be assigned an access policy with an IAM role defined. The policy determines what actions a user can perform within the context of the service or instance that you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
@@ -44,6 +41,7 @@ Policies enable you to grant access at different levels. Some of the options inc
 - Access to a specific resource within an instance.
 
 ## Roles and permissions
+{: #roles-and-permissions}
 
 With {{site.data.keyword.cloud_notm}} IAM, you can manage and define access for users and resources in your account.
 
@@ -53,8 +51,9 @@ This section discusses {{site.data.keyword.cloud_notm}} IAM in the context of {{
 {:note}
 
 ### Platform access roles
+{: #platform-access-roles}
 
-Use platform access roles to grant permissions at the account level, such as the ability to create or delete instances in your {{site.data.keyword.cloud_notm}} account.
+Use platform access roles to grant permissions at the account level, such as the ability to create or delete {{site.data.keyword.dns_short}} instances in your {{site.data.keyword.cloud_notm}} account.
 
 | Action	                                       | Role                                     |
 | ---------------------------------------------- | :--------------------------------------- |
@@ -63,6 +62,7 @@ Use platform access roles to grant permissions at the account level, such as the
 |Delete {{site.data.keyword.dns_full}} instances | Administrator, Editor                    |
 
 ### Service access roles
+{: #service-access-roles}
 
 Use service access roles to grant permissions at the service level, such as the ability to view, create, or delete DNS zones, resource records, and permitted networks.
 
@@ -75,5 +75,10 @@ The following table shows how service access roles map to {{site.data.keyword.dn
 | Manager | A manager can perform all actions that a reader and writer can perform, including the ability to create and delete DNS zones, create and delete resource records, and also add and remove permitted networks. | All actions that a Reader or a Writer can perform, also can create and delete DNS zones. Additionally, can create and delete resource records records, and add or remove permitted networks. |
 
 ## Working with permitted network (VPC) related IAM access
+{: #permitted-network-vpc-access-roles}
 
-To add or remove a permitted network (VPC) to the DNS zone, a user must have at least Operator level access to all resource types in VPC Infrastructure Services. To learn more about providing Operator level access to the VPC, see [VPC: Getting started with IAM](/docs/vpc?topic=vpc-iam-getting-started).
+| Role    | Description       |Actions  |
+| :------ | :---------------- |:------- |
+|Operator | All VPC Infrastructure resources|Add or remove a permitted network (VPC) to the DNS zone
+
+To learn more about providing Operator level access to the VPC, see [VPC: Getting started with IAM](/docs/vpc?topic=vpc-iam-getting-started).

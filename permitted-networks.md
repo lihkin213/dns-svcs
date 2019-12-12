@@ -27,9 +27,6 @@ subcollection: dns-svcs
 # Managing permitted networks
 {: #managing-permitted-networks}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 This section describes how to manage permitted networks for your {{site.data.keyword.dns_full}} instance.
 {:shortdesc}
 

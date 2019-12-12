@@ -22,9 +22,6 @@ subcollection: dns-svcs
 # Known limitations
 {: #known-limitations}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 This section details some of the known limitations of {{site.data.keyword.dns_short}}.
 {:shortdesc}
 

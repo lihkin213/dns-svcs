@@ -28,9 +28,6 @@ subcollection: dns-svcs
 # About {{site.data.keyword.dns_short}}
 {: #about-dns-services}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 To better understand {{site.data.keyword.dns_full}}, it helps to know more about DNS in general.
 {:shortdesc}
 

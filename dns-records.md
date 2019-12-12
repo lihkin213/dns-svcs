@@ -28,9 +28,6 @@ subcollection: dns-svcs
 # Managing DNS records
 {:#managing-dns-records}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 ## Using the {{site.data.keyword.cloud_notm}} console
 {: #managing-dns-records-ui}
 Manage DNS records from the {{site.data.keyword.cloud}} console, or the API. The following sections cover the console usage.

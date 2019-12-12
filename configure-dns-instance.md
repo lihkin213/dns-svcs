@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-12-12"
 
 keywords: dns, dns-svcs, DNS Services, Private DNS, dns vpc
 
@@ -26,9 +26,6 @@ subcollection: dns-svcs
 
 # Setting up your DNS instance
 {: #setting-up-your-dns-instance}
-
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
 
 This section describes how to set up a DNS instance, DNS zones, permitted networks, and resource records.
 {:shortdesc}
@@ -103,6 +100,8 @@ Example:
 {: #creating-dns-instance-api}
 
 If your account is enabled for the experimental {{site.data.keyword.dns_short}}, it appears in the [experimental catalog](https://{DomainName}/catalog/labs). You can also navigate directly to the {{site.data.keyword.dns_short}} instance creation by going to the [{{site.data.keyword.dns_short}} catalog entry](https://{DomainName}/catalog/services/dns-services).
+
+See the [{{site.data.keyword.dns_short}} API reference](/docs/dns-svcs?topic=dns-svcs-dns-svcs-api) documentation for more information on using the API.
 
 ### Creating a DNS zone
 {: #creating-dns-zone-api}

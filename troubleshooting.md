@@ -28,9 +28,6 @@ subcollection: dns-svcs
 # Troubleshooting DNS Services
 {: #troubleshooting-dns-services}
 
-{{site.data.keyword.cloud}} DNS Services is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 Troubleshooting is a systematic approach to solving a problem. The goal of troubleshooting is to determine why something does not work as expected and to find a solution that resolves the problem. In many cases, you can recover from a problem by following a few easy steps.
 {:shortdesc}
 

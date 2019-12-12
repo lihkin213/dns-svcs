@@ -28,9 +28,6 @@ subcollection: dns-svcs
 # Managing DNS zones
 {:#managing-dns-zones}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 You must have an {{site.data.keyword.dns_full}} instance before managing DNS zones. Refer to [Create a {{site.data.keyword.dns_short}} instance](/docs/infrastructure/dns-svcs?topic=dns-svcs-getting-started#step-1-create-dns-services-instance) for more information.
 
 ## Using the {{site.data.keyword.cloud_notm}} console

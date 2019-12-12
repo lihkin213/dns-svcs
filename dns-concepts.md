@@ -26,9 +26,6 @@ subcollection: dns-svcs
 # Understanding DNS concepts
 {: #dns-concepts}
 
-{{site.data.keyword.dns_full_notm}} is in Experimental Release. At this time the service is available to whitelisted customers only.
-{: important}
-
 This document contains some concepts and definitions related to the internet's domain name system (DNS) and how it affects your usage of {{site.data.keyword.dns_short}}.
 {:shortdesc}
 
