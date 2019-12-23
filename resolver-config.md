@@ -35,7 +35,7 @@ This section describes how to update the DNS resolver for the following operatin
  - CentOS 7.x
  - RHEL 7.x
  - Ubuntu Linux 18.04 LTS Bionic Beaver
- 
+
 
 ## CentOS 7.x
 {: #updating-dns-resolver-centos}
@@ -43,7 +43,7 @@ This section describes how to update the DNS resolver for the following operatin
 ### Modifying **`/etc/resolv.conf`**
 {: #updating-dns-resolver-centos-resolv}
 
-CentOS 7.x makes use of the **`/etc/resolv.conf`** file for the DNS resolver configuration. Update this file with the DNS Services nameservers `161.26.0.7` and `161.26.0.8`.
+CentOS 7.x makes use of the **`/etc/resolv.conf`** file for the DNS resolver configuration. Update this file with the DNS Services name servers `161.26.0.7` and `161.26.0.8`.
 
 ## RHEL 7.x
 {: #updating-dns-resolver-rhel}
@@ -51,7 +51,7 @@ CentOS 7.x makes use of the **`/etc/resolv.conf`** file for the DNS resolver con
 ### Modifying **`/etc/resolv.conf`**
 {: #updating-dns-resolver-rhel-resolv}
 
-RHEL 7.x makes use of the **`/etc/resolv.conf`** file for the DNS resolver configuration. Update this file with the DNS Services nameservers `161.26.0.7` and `161.26.0.8`.
+RHEL 7.x makes use of the **`/etc/resolv.conf`** file for the DNS resolver configuration. Update this file with the DNS Services name servers `161.26.0.7` and `161.26.0.8`.
 
 ## Ubuntu Linux 18.04 LTS Bionic Beaver
 {: #updating-dns-resolver-ubuntu}
@@ -59,7 +59,7 @@ RHEL 7.x makes use of the **`/etc/resolv.conf`** file for the DNS resolver confi
 ### Modifying **`/etc/netplan/50-cloud-init.yaml`**
 {: #updating-dns-resolver-ubuntu-resolv}
 
-Ubuntu Linux 18.04 makes use of netplan and the **`/etc/netplan/50-cloud-init.yaml`** file for the DNS resolver configuration. Update this file with the DNS Services nameservers `161.26.0.7` and `161.26.0.8`. To apply the changes run the command:
+Ubuntu Linux 18.04 makes use of netplan and the **`/etc/netplan/50-cloud-init.yaml`** file for the DNS resolver configuration. Update this file with the DNS Services names ervers `161.26.0.7` and `161.26.0.8`. To apply the changes run the command:
 
 ```console
 sudo netplan apply

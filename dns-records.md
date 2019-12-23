@@ -49,7 +49,7 @@ The default value of TTL is `1 min`, but users can change it.
 #### A Type record
 {:#a-record}
 
-To add this record type, valid values must exist in the **Name** and **IPv4 Address** fields. Specify a **TTL** value from the dropdown menu, with a default value of `1 min`.
+To add this record type, valid values must exist in the **Name** and **IPv4 Address** fields. Specify a **TTL** value from the list menu, with a default value of `1 min`.
 
 Required Fields:
 * Name
@@ -59,7 +59,7 @@ Required Fields:
 #### AAAA Type record
 {:#aaaa-record}
 
-To add this record type, valid values must exist in the **Name** and **IPv6 Address** fields. Specify a **TTL** value from the dropdown menu, with a default value of `1 min`.
+To add this record type, valid values must exist in the **Name** and **IPv6 Address** fields. Specify a **TTL** value from the list menu, with a default value of `1 min`.
 
 Required Fields:
 * Name
@@ -69,7 +69,7 @@ Required Fields:
 #### CNAME Type record
 {:#cname-record}
 
-To add this record type, a valid value must exist in the **Name** field and a fully qualified domain name must be in the **Target** (FQDN) field. A **TTL** can also be specified from the dropdown menu, with the default value of `1 min`.
+To add this record type, a valid value must exist in the **Name** field and a fully qualified domain name must be in the **Target** (FQDN) field. A **TTL** can also be specified from the list menu, with the default value of `1 min`.
 
 Required Fields:
 * Name
@@ -79,7 +79,7 @@ Required Fields:
 #### MX Type record
 {:#mx-record}
 
-To add this record type, a valid value must exist in the **Name** field, a fully qualified domain name must be in the **Mail Server** (FQDN)field, and a valid number must exist in the **Priority** field. Specify a **TTL** value from the dropdown menu, with a default value of `1 min`.
+To add this record type, a valid value must exist in the **Name** field, a fully qualified domain name must be in the **Mail Server** (FQDN)field, and a valid number must exist in the **Priority** field. Specify a **TTL** value from the list menu, with a default value of `1 min`.
 
 Required Fields:
 * Name
@@ -90,7 +90,7 @@ Required Fields:
 #### PTR Type record
 {:#ptr-record}
 
-To add this record type, an existing A or AAAA record must be created beforehand that is not already associated with another PTR record. Select an existing record from the dropdown menu. Specify a **TTL** value from the dropdown menu, with a default value of `1 min`.
+To add this record type, an existing A or AAAA record must be created beforehand that is not already associated with another PTR record. Select an existing record from the list menu. Specify a **TTL** value from the list menu, with a default value of `1 min`.
 
 Required Fields:
 * Select existing record
@@ -99,7 +99,7 @@ Required Fields:
 #### SRV Type record
 {:#srv-record}
 
-To add this record type, valid values must exist in the **Name**, **Service Name** and **Target** fields. Use the dropdown menu to select a **protocol**, which defaults to the UDP protocol. Additionally, you can specify **Priority**, **Weight** and **Port**. These three fields default to a value of `1`. Specify a **TTL** value from the dropdown menu, with a default value of `1 min`.
+To add this record type, valid values must exist in the **Name**, **Service Name** and **Target** fields. Use the list menu to select a **protocol**, which defaults to the UDP protocol. Additionally, you can specify **Priority**, **Weight** and **Port**. These three fields default to a value of `1`. Specify a **TTL** value from the list menu, with a default value of `1 min`.
 
 Required Fields:
 * Name
@@ -114,7 +114,7 @@ Required Fields:
 #### TXT Type record
 {:#txt-record}
 
-To add this record type, valid values must exist in the **Name** and **Content** fields. Specify a **TTL** value from the dropdown menu, with a default value of `1 min`.
+To add this record type, valid values must exist in the **Name** and **Content** fields. Specify a **TTL** value from the list menu, with a default value of `1 min`.
 
 Required Fields:
 * Name

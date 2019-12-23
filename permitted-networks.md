@@ -41,8 +41,8 @@ DNS Services is a global service, therefore you may add permitted networks (for 
 1. Select the desired zone from the table on the DNS Zones page.
 1. Select the **Permitted Networks** tab.
 1. Click the **Add Network** button.
-1. In the panel that appears, select the region of your network from the **Network Region** dropdown menu.
-1. Select the desired network from the **Network** dropdown menu that appears.
+1. In the panel that appears, select the region of your network from the **Network Region** list menu.
+1. Select the desired network from the **Network** list menu that appears.
 1. Click **Add Network**.
 
 Adding the same VPC to two DNS zones of the same name is not allowed.

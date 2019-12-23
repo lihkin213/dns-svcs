@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-12-02"
+lastupdated: "2019-12-19"
 
 keywords: known issues, DNS Services
 
@@ -26,3 +26,5 @@ This section details some of the known limitations of {{site.data.keyword.dns_sh
 {:shortdesc}
 
  * This service is supported for VPCs (Gen1) that are created after 10/8/2019. To use the service for VPCs created prior to that, follow [this process](https://www.ibm.com/support/pages/node/1086243) to open a support case.
+ * To add a VPC into permitted networks for a DNS zone, users must have the **Operator** role with **all VPC Infrastructure Resources**.
+ * When adding a VPC to a permitted network through the UI, you cannot add a VPC from a region that contains more than 8 VPCs. Use the API or CLI to add the VPC directly to the permitted network call using its CRN.
